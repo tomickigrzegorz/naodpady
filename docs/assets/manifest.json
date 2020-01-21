@@ -1,0 +1,21 @@
+{
+  "short_name": "naOdpady",
+  "name": "naOdpady",
+  "icons": [
+    {
+      "src": "/static/app_192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/static/app_512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#036bb5",
+  "display": "standalone",
+  "theme_color": "#036bb5",
+  "orientation": "portrait"
+}
