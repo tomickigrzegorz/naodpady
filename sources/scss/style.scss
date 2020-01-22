@@ -25,20 +25,10 @@ body {
   color: #000;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
-  background: rgb(214, 214, 214);
-  background: linear-gradient(to bottom, rgb(214, 214, 214) 0%, rgb(246, 246, 246) 50%, rgb(195, 195, 195) 100%);
+  background: #d6d6d6;
+  background: linear-gradient(to bottom, #d6d6d6 0%, #f6f6f6 50%, #c3c3c3 100%);
   background-attachment: fixed;
 }
-
-$colors: (
-  "brown": $color-brown,
-  "yellow": $color-yellow,
-  "blue": $color-blue,
-  "green": $color-green,
-  "black": $color-black,
-  "gray": $color-gray,
-  "info": $color-black
-);
 
 .form__search {
   position: fixed;

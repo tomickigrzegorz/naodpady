@@ -6,3 +6,13 @@ $color-green: #44ad34;
 $color-black: #000000;
 $color-gray: #505050;
 $color-red: #ff0000;
+
+$colors: (
+  "brown": $color-brown,
+  "yellow": $color-yellow,
+  "blue": $color-blue,
+  "green": $color-green,
+  "black": $color-black,
+  "gray": $color-gray,
+  "info": $color-black
+);
