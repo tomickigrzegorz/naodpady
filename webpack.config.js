@@ -90,9 +90,15 @@ module.exports = (env, { mode }) => {
         filename: './assets/css/style.[hash].css',
       }),
       new HtmlWebPackPlugin({
-        filename: 'index.html',
         template: './sources/index.html',
-        // inject: false
+        minify: inDev ? false : {
+          collapseWhitespace: true,
+          removeComments: true,
+          // removeRedundantAttributes: true,
+          removeScriptTypeAttributes: true,
+          removeStyleLinkTypeAttributes: true,
+          useShortDoctype: true
+        },
       }),
     ],
   };

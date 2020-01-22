@@ -30,21 +30,11 @@ function createFiles() {
     const [name, type] = line.split('|');
   
     let comma = index < resLength - 1 ? ',' : '';
-    const path = `
-      {
-        "name": "${name.trim()}",
-        "type": ${type.trim()}
-      }${comma}`;
+    const path = `{"name":"${name.trim()}","type":${type.trim()}}${comma}`;
   
     site.push(path);
   
-    const template = `
-  {
-    "segregacja": {
-      "odpadow": [${site.join('')}
-    ]}
-  }
-  `;
+    const template = `{"segregacja":{"odpadow": [${site.join('')}]}}`;
   
     writeFileSync(`./trashlist/naodpady.${date}.json`, template, err => { });
   

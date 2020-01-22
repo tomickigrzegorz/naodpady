@@ -1,17 +1,12 @@
 @import "./modules/variables";
 @import "./modules/normalize";
 @import "./modules/scroll";
+@import "./modules/navigation";
 
 *,
 *:after,
 *:before {
   box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
 }
 
 html {
@@ -30,6 +25,9 @@ body {
   color: #000;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  background: rgb(214, 214, 214);
+  background: linear-gradient(to bottom, rgb(214, 214, 214) 0%, rgb(246, 246, 246) 50%, rgb(195, 195, 195) 100%);
+  background-attachment: fixed;
 }
 
 $colors: (
@@ -42,27 +40,34 @@ $colors: (
   "info": $color-black
 );
 
-.form {
+.form__search {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   margin: auto;
   z-index: 1;
-  max-width: 960px;
   padding: 10px;
-  background-color: $color-white;
+  height: 70px;
+  box-shadow: 0 4px 15px -4px rgba(0, 0, 0, 0.2);
+  background: $color-white;
   input {
     margin-bottom: 0;
     padding-right: 40px;
   }
 }
 
+.container {
+  position: relative;
+  max-width: 960px;
+  margin: auto;
+}
+
 input[type="text"] {
   height: 38px;
   padding: 6px 10px;
   width: 100%;
-  background-color: #fff;
+  background-color: $color-white;
   border: 1px solid #d1d1d1;
   border-radius: 4px;
   box-shadow: none;
@@ -77,10 +82,6 @@ input[type="text"] {
   margin-bottom: 10px;
 }
 
-body {
-  background-color: lighten($color-gray, 60%);
-}
-
 .title {
   padding: 10px 15px 10px 10px;
   line-height: 120%;
@@ -89,36 +90,55 @@ body {
   }
 }
 
-@each $name, $hex in $colors {
-  .gradient-#{$name} {
-    position: relative;
-    border: 1px solid $color-white;
-    background-color: $color-white;
-    // background: linear-gradient(90deg, $color-white 0%, rgba($hex, 0.4) 100%);
-    box-shadow: 0px 3px 3px -4px rgba(0, 0, 0, 0.9);
-    border-radius: 3px;
+.gradient__row {
+  position: relative;
+  border: 1px solid lighten($color-gray, 50%);
+  background-color: $color-white;
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin-left: 25px;
+  transition: all 100ms;
+  cursor: pointer;
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: -22px;
+    margin: auto;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid $color-white;
+    transition: all 100ms;
+    box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, 0.6);
+  }
+  &:hover::before {
+    width: 22px;
+    height: 22px;
+    left: -25px;
+    box-shadow: 0 2px 2px 0 rgba(102, 102, 102, 0.4);
   }
 }
 
 @each $name, $hex in $colors {
   .gradient-#{$name}::before {
-    position: absolute;
-    content: "";
-    width: 6px;
-    height: 100%;
-    left: -1px;
     background: $hex;
   }
 }
 
 @each $name, $hex in $colors {
   .#{$name} {
-    background-color: #{$hex};
+    background-color: $hex;
+    transition: box-shadow 200ms;
     cursor: pointer;
+    &:hover {
+      box-shadow: inset 0 0 10px darken($hex, 20%);
+    }
   }
 }
 
-.color-of-containers {
+.color-of__containers {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   width: 100%;
@@ -129,61 +149,99 @@ body {
   right: 0;
   bottom: 0;
   margin: auto;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.6);
   @media (max-width: 600px) {
     width: 100%;
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.container-list {
+.loading {
+  .container__list {
+    opacity: 0;
+  }
+}
+
+.container__list {
+  position: relative;
   width: 100%;
   max-width: 960px;
   margin: auto;
+  opacity: 1;
+  transition: 300ms opacity;
+  &::before {
+    position: absolute;
+    content: "";
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(44, 44, 44, 1) 20%,
+      rgba(44, 44, 44, 1) 80%,
+      rgba(237, 237, 237, 0) 100%
+    );
+    left: 12px;
+    width: 1px;
+    height: 100%;
+  }
 }
 
-.color-trash {
+.color__trash {
   color: $color-white;
   display: grid;
   align-items: center;
   text-transform: uppercase;
-  padding: 4px;
   height: 55px;
   font-size: 1.4rem;
   line-height: 100%;
+  transition: box-shadow 200ms;
   @media (max-width: 600px) {
     height: 45px;
     font-size: 1.2rem;
   }
 }
 
-.list-trash {
-  margin-top: 63px;
-  margin-bottom: 70px;
-  padding: 0 10px;
+.list__trash {
+  margin-bottom: 50px;
+  padding: 70px 0 10px;
   @media (max-width: 600px) {
     margin-bottom: 100px;
+    padding: 70px 10px 0 0;
   }
 }
 
-.more-info {
+.more__info {
   position: absolute;
-  top: 10px;
-  right: 9px;
+  top: 0;
+  right: 0;
   width: 38px;
   height: 38px;
+  z-index: 999;
   background-color: lighten($color-black, 25%);
   cursor: pointer;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
+  border-radius: 3px;
 }
 
-.more-info::before {
+.loading::before {
   position: absolute;
-  content: "\2026";
-  color: $color-white;
-  font-weight: 700;
+  content: "ŁADUJĘ...";
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 2rem;
-  left: 17px;
-  top: 7px;
-  transform: rotate(90deg);
+  width: 100%;
+  height: 100%;
+}
+
+.type__trash {
+  margin: 5px 10px 0;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  span {
+    font-weight: 700;
+    color: $color-white;
+    background-color: $color-black;
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
 }
