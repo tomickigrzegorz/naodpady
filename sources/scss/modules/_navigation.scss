@@ -56,6 +56,12 @@
   overflow: hidden;
 }
 
+.menu__scroll {
+  overflow: auto;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
 .menu {
   position: fixed;
   top: 0;
@@ -63,7 +69,7 @@
   z-index: 998;
   color: $color-black;
   background: #fafafa;
-  width: 100%;
+  min-width: 100%;
   height: 100%;
   padding: 100px;
   display: flex;
@@ -87,6 +93,6 @@
   @media (max-width: 600px) {
     width: 100%;
     left: -120%;
-    padding: 20px;
+    padding: 60px 20px 20px;
   }
 }

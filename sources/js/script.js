@@ -11,15 +11,15 @@ const trashFullName = [
   'RESET',
 ];
 
-function sortData(data, type) {
-  switch (type) {
+function sortData(data, number) {
+  switch (number) {
     case 1:
     case 2:
     case 3:
     case 4:
     case 5:
       return data
-        .filter(a => a.type === type)
+        .filter(a => a.type === number)
         .sort((a, b) => a.name.localeCompare(b.name));
     default:
       return data.sort((a, b) => a.name.localeCompare(b.name));
@@ -33,21 +33,21 @@ function infoTrash(number) {
     case 3:
     case 4:
     case 5:
-      return '<span data-trash="6">RESET</span> wraca do ustawień początkowych';
+      return '<div data-trash="6"><span>RESET</span> wraca do ustawień początkowych</div>';
     default:
       return 'cała lista śmieci';
   }
 }
 
 function allsite(number) {
-  const numberType = Number(number);
+  const numberType = number ? Number(number) : 6;
   const container = document.querySelector('.list__trash');
   const typeTrash = document.querySelector('.type__trash');
   const divBlock = document.createElement('div');
   divBlock.classList.add('container__list');
   container.appendChild(divBlock);
 
-  document.body.classList.add('loading');
+  document.body.classList.add('loading', `color-${colors[numberType - 1]}`);
 
   fetch(`./trashlist/${trashlistJSON}`)
     .then(response => response.json())
@@ -69,9 +69,9 @@ function allsite(number) {
             divBlock.innerHTML += row;
             return divBlock;
           });
-          document.body.classList.remove('loading');
+          document.body.className = '';
           resolve();
-        }, 300);
+        }, 500);
       });
     });
 
