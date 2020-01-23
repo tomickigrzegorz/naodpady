@@ -241,7 +241,6 @@ wyschnięte zakreślacze | 5
 zabawki - bez baterii, elektroniki | 5
 zapalniczki - puste | 2
 zapałki | 5
-zapisany zeszyt | 3
 zatłuszczony papier | 5
 zbita ceramiczna doniczka | 5
 zbita ceramika | 5

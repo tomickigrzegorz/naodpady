@@ -7,7 +7,7 @@ const Dotenv = require('dotenv-webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 function prodPlugin(plugin, mode) {
-  return mode === 'production' ? plugin : () => { };
+  return mode === 'production' ? plugin : () => {};
 }
 
 module.exports = (env, { mode }) => {
@@ -37,9 +37,9 @@ module.exports = (env, { mode }) => {
           type: 'javascript/auto',
           options: {
             name() {
-              return '[path][name].[ext]'
-            }
-          }
+              return '[path][name].[ext]';
+            },
+          },
         },
         {
           test: /\.(css|sass|scss)$/,
@@ -72,33 +72,41 @@ module.exports = (env, { mode }) => {
       prodPlugin(
         new CleanWebpackPlugin({
           // dry: true,
-          verbose: true
+          verbose: true,
         }),
         mode
       ),
-      prodPlugin(new CopyPlugin([
-        { from: 'trashlist/*.json', to: './' },
-        { from: 'sources/assets/', to: 'assets/' },
-        { from: 'sources/static/', to: 'static/' },
-      ]), mode),
-      prodPlugin(new WorkboxPlugin.GenerateSW({
-        clientsClaim: true,
-        skipWaiting: true,
-      }), mode),
+      prodPlugin(
+        new CopyPlugin([
+          { from: 'trashlist/*.json', to: './' },
+          { from: 'sources/assets/', to: 'assets/' },
+          { from: 'sources/static/', to: 'static/' },
+        ]),
+        mode
+      ),
+      prodPlugin(
+        new WorkboxPlugin.GenerateSW({
+          clientsClaim: true,
+          skipWaiting: true,
+        }),
+        mode
+      ),
       new Dotenv(),
       new MiniCssExtractPlugin({
         filename: './assets/css/style.[hash].css',
       }),
       new HtmlWebPackPlugin({
         template: './sources/index.html',
-        minify: inDev ? false : {
-          collapseWhitespace: true,
-          removeComments: true,
-          // removeRedundantAttributes: true,
-          removeScriptTypeAttributes: true,
-          removeStyleLinkTypeAttributes: true,
-          useShortDoctype: true
-        },
+        minify: inDev
+          ? false
+          : {
+              collapseWhitespace: true,
+              removeComments: true,
+              // removeRedundantAttributes: true,
+              removeScriptTypeAttributes: true,
+              removeStyleLinkTypeAttributes: true,
+              useShortDoctype: true,
+            },
       }),
     ],
   };

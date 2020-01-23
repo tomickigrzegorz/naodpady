@@ -39,6 +39,22 @@ function infoTrash(number) {
   }
 }
 
+function showHideNoResult() {
+  const noResult = document.querySelector('.no__result');
+  const rowVisibleCount = document.querySelectorAll(
+    '.row:not([style="display: none;"])'
+  ).length;
+
+  return rowVisibleCount < 1
+    ? noResult.classList.remove('hidden')
+    : noResult.classList.add('hidden');
+}
+
+function hideNoResult() {
+  const noResult = document.querySelector('.no__result');
+  noResult.classList.add('hidden');
+}
+
 function allsite(number) {
   const numberType = number ? Number(number) : 6;
   const container = document.querySelector('.list__trash');
@@ -48,6 +64,10 @@ function allsite(number) {
   container.appendChild(divBlock);
 
   document.body.classList.add('loading', `color-${colors[numberType - 1]}`);
+
+  document.getElementById('search').value = '';
+
+  hideNoResult();
 
   fetch(`./trashlist/${trashlistJSON}`)
     .then(response => response.json())
@@ -101,7 +121,16 @@ function searchText() {
       lists[i].parentNode.parentNode.style.display = 'none';
     }
   }
+  showHideNoResult();
   scrollTopWindow();
+}
+
+function addMail() {
+  const noResult = document.querySelectorAll('.no__result--mail');
+  for (let i = 0; i < noResult.length; i++) {
+    noResult[i].innerHTML =
+      '<a href="mailto:info@naodpady.pl">info@naodpady.pl</a>';
+  }
 }
 
 function downloadDataByColor() {
@@ -155,7 +184,9 @@ function navigationMenu() {
 //   });
 // }
 window.addEventListener('input', searchText);
-window.addEventListener('DOMContentLoaded', () => {
+
+window.addEventListener('load', () => {
   allsite();
+  addMail();
   navigationMenu();
 });
