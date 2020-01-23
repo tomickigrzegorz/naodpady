@@ -1,0 +1,40 @@
+.loading {
+  &::before {
+    position: absolute;
+    content: "LOADING...";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: $color-black;
+    width: 100%;
+    height: 100%;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: -150px;
+    right: 0;
+    bottom: 0;
+    width: 35px;
+    height: 35px;
+    margin: auto;
+    border-radius: 50%;
+    border: 4px solid $color-blue;
+    border-color: lighten($color-blue, 20%) transparent lighten($color-blue, 20%) transparent;
+    animation: dual-ring 1s linear infinite;
+  }
+  @keyframes dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .container__list {
+    opacity: 0;
+  }
+}
