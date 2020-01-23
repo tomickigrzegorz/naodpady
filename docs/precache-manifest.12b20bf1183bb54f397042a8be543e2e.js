@@ -42,7 +42,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "static/favicon.ico"
   },
   {
-    "revision": "bda8acc70d0b7f39220fc008b63d32a8",
+    "revision": "d834c1afe34b6c42cb7e95662c72834a",
     "url": "trashlist/naodpady.20200123.json"
   }
 ]);

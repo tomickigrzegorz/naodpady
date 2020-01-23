@@ -203,7 +203,7 @@ szczoteczki | 5
 szczotki | 5
 szklana butelka po oleju jadalnym lub oliwie (nie trzeba myć tylko opróżnić) | 4
 szklane butelki | 4
-szklanki | 5
+potłuczone szklanki | 5
 szkło opakowaniowe | 4
 szkło płaskie | 5
 szkło stołowe np. zbity kieliszek | 5
