@@ -55,7 +55,7 @@ function hideNoResult() {
   noResult.classList.add('hidden');
 }
 
-function allsite(number) {
+function getDataFromJSON(number) {
   const numberType = number ? Number(number) : 6;
   const container = document.querySelector('.list__trash');
   const typeTrash = document.querySelector('.type__trash');
@@ -125,7 +125,7 @@ function searchText() {
   scrollTopWindow();
 }
 
-function addMail() {
+function addMailAddress() {
   const noResult = document.querySelectorAll('.no__result--mail');
   for (let i = 0; i < noResult.length; i++) {
     noResult[i].innerHTML =
@@ -138,28 +138,28 @@ function downloadDataByColor() {
   const footer = document.querySelector('.color-of__containers');
   const content = document.querySelector('.container__list');
 
-  dataTrashs.forEach(dataTrash => {
-    dataTrash.addEventListener('click', () => {
+  for (let i = 0; i < dataTrashs.length; i++) {
+    dataTrashs[i].addEventListener('click', event => {
+      const dataType = event.currentTarget.dataset.trash;
       footer.innerHTML = '';
       content.remove();
-      const dataType = dataTrash.dataset.trash;
-      allsite(dataType);
+      getDataFromJSON(dataType);
     });
-  });
+  }
 }
 
 function tilesWithContainerNames() {
   const footer = document.querySelector('.color-of__containers');
 
-  colors.forEach((color, index) => {
-    const colorElement = colors[index];
+  for (let i = 0; i < colors.length; i++) {
+    const colorElement = colors[i];
     const column = `
-      <div class="color__trash ${colorElement}" data-trash="${index + 1}">${
-      trashFullName[index]
+      <div class="color__trash ${colorElement}" data-trash="${i + 1}">${
+      trashFullName[i]
     }</div>
     `;
     footer.innerHTML += column;
-  });
+  }
   downloadDataByColor();
 }
 
@@ -174,19 +174,9 @@ function navigationMenu() {
   });
 }
 
-// if ('serviceWorker' in navigator) {
-//   window.addEventListener('load', () => {
-//     navigator.serviceWorker.register('/service-worker.js').then(registration => {
-//       console.log('SW registered: ', registration);
-//     }).catch(registrationError => {
-//       console.log('SW registration failed: ', registrationError);
-//     });
-//   });
-// }
 window.addEventListener('input', searchText);
-
 window.addEventListener('load', () => {
-  allsite();
-  addMail();
+  getDataFromJSON();
+  addMailAddress();
   navigationMenu();
 });

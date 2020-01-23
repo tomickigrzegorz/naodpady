@@ -5,6 +5,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 function prodPlugin(plugin, mode) {
   return mode === 'production' ? plugin : () => {};
@@ -108,6 +109,12 @@ module.exports = (env, { mode }) => {
               useShortDoctype: true,
             },
       }),
+      prodPlugin(
+        new BundleAnalyzerPlugin({
+          openAnalyzer: true,
+        }),
+        mode
+      ),
     ],
   };
 };

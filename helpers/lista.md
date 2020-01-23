@@ -166,7 +166,7 @@ pusta zapaliczka | 5
 puste blistry, lekarstwa | 5
 puste butelki po kosmetykach | 2
 puste butelki po szamponach | 2
-puste szklane butelki, po zdjęciu zakrętki | 3
+puste szklane butelki, po zdjęciu zakrętki | 4
 puste szklane opakowania po kosmetykach | 4
 puszki | 2
 rajstopy | 5
