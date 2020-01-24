@@ -39,6 +39,12 @@ function infoTrash(number) {
   }
 }
 
+function setFocusSearch() {
+  const searchInput = document.getElementById('search');
+  console.log('ok');
+  searchInput.focus();
+}
+
 function showHideNoResult() {
   const noResult = document.querySelector('.no__result');
   const rowVisibleCount = document.querySelectorAll(
@@ -96,6 +102,7 @@ function getDataFromJSON(number) {
     });
 
   typeTrash.innerHTML = infoTrash(numberType);
+  setFocusSearch();
   tilesWithContainerNames();
 }
 
@@ -121,6 +128,7 @@ function searchText() {
       lists[i].parentNode.parentNode.style.display = 'none';
     }
   }
+
   showHideNoResult();
   scrollTopWindow();
 }
@@ -148,6 +156,27 @@ function downloadDataByColor() {
   }
 }
 
+function triggerBottomMenu() {
+  const triggerElement = document.querySelector('.trigger');
+  const footer = document.querySelector('.color-of__containers');
+
+  triggerElement.addEventListener('click', () => {
+    footer.classList.toggle('active');
+  });
+}
+
+function addingTriggerButton() {
+  const triggerButton = document.createElement('div');
+  triggerButton.setAttribute('class', 'trigger');
+  const firstElementMenuFooter = document.querySelector(
+    '.color-of__containers'
+  );
+  const parentElement = firstElementMenuFooter.parentNode;
+  parentElement.insertBefore(triggerButton, firstElementMenuFooter);
+
+  triggerBottomMenu();
+}
+
 function tilesWithContainerNames() {
   const footer = document.querySelector('.color-of__containers');
 
@@ -160,6 +189,7 @@ function tilesWithContainerNames() {
     `;
     footer.innerHTML += column;
   }
+  // addingTriggerButton();
   downloadDataByColor();
 }
 
@@ -176,6 +206,7 @@ function navigationMenu() {
 
 window.addEventListener('input', searchText);
 window.addEventListener('load', () => {
+  addingTriggerButton();
   getDataFromJSON();
   addMailAddress();
   navigationMenu();
