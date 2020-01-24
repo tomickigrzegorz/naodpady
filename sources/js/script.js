@@ -157,10 +157,9 @@ function downloadDataByColor() {
 
 function triggerBottomMenu() {
   const triggerElement = document.querySelector('.trigger');
-  const footer = document.querySelector('.color-of__containers');
 
   triggerElement.addEventListener('click', () => {
-    footer.classList.toggle('active');
+    document.body.classList.toggle('active-menu');
   });
 }
 
@@ -199,7 +198,19 @@ function navigationMenu() {
   toggler.addEventListener('click', () => {
     toggler.classList.toggle('active');
     menu.classList.toggle('active');
-    document.body.classList.toggle('active-menu');
+  });
+}
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/service-worker.js')
+      .then(registration => {
+        console.log('SW registered: ', registration);
+      })
+      .catch(registrationError => {
+        console.log('SW registration failed: ', registrationError);
+      });
   });
 }
 

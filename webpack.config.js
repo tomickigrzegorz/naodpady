@@ -80,16 +80,13 @@ module.exports = (env, { mode }) => {
       prodPlugin(
         new CopyPlugin([
           { from: 'trashlist/*.json', to: './' },
-          { from: 'sources/assets/', to: 'assets/' },
+          {
+            from: 'sources/assets/',
+            to: 'assets/',
+            ignore: ['robots.txt', '.htaccess'],
+          },
           { from: 'sources/static/', to: 'static/' },
         ]),
-        mode
-      ),
-      prodPlugin(
-        new WorkboxPlugin.GenerateSW({
-          clientsClaim: true,
-          skipWaiting: true,
-        }),
         mode
       ),
       new Dotenv(),
@@ -110,11 +107,21 @@ module.exports = (env, { mode }) => {
             },
       }),
       prodPlugin(
-        new BundleAnalyzerPlugin({
-          openAnalyzer: true,
+        new WorkboxPlugin.GenerateSW({
+          clientsClaim: true,
+          skipWaiting: true,
+          directoryIndex: 'index.html',
+          // runtimeCaching: [{}],
+          // exclude: [/\.htacces$/gim],
         }),
         mode
       ),
+      // prodPlugin(
+      //   new BundleAnalyzerPlugin({
+      //     openAnalyzer: true,
+      //   }),
+      //   mode
+      // ),
     ],
   };
 };
