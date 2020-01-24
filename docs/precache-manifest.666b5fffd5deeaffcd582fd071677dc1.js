@@ -1,9 +1,9 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "url": "./assets/css/style.cdc94c172da6909ec42c.css"
+    "url": "./assets/css/style.0f4c4b3c744a0bd17f96.css"
   },
   {
-    "url": "./assets/js/script.cdc94c172da6909ec42c.js"
+    "url": "./assets/js/script.0f4c4b3c744a0bd17f96.js"
   },
   {
     "revision": "d680d5b3fab4c94a2e2d818f83347aae",
@@ -42,7 +42,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "static/favicon.ico"
   },
   {
-    "revision": "d834c1afe34b6c42cb7e95662c72834a",
-    "url": "trashlist/naodpady.20200123.json"
+    "revision": "e1889e754814817cd459bcd93c409900",
+    "url": "trashlist/naodpady.20200124.json"
   }
 ]);

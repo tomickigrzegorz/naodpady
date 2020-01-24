@@ -156,6 +156,7 @@ popiół z węgla i koksu - nie gorący | 5
 popsute okulary | 5
 porcelana | 5
 potłuczona ceramika | 5
+potłuczone szklanki | 5
 potłuczone szkło (nie świetlówki) | 4
 potłuczone szyby | 5
 pozostałości po rybie | 5
@@ -203,7 +204,6 @@ szczoteczki | 5
 szczotki | 5
 szklana butelka po oleju jadalnym lub oliwie (nie trzeba myć tylko opróżnić) | 4
 szklane butelki | 4
-potłuczone szklanki | 5
 szkło opakowaniowe | 4
 szkło płaskie | 5
 szkło stołowe np. zbity kieliszek | 5

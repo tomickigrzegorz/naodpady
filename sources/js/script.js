@@ -154,9 +154,9 @@ function tilesWithContainerNames() {
   for (let i = 0; i < colors.length; i++) {
     const colorElement = colors[i];
     const column = `
-      <div class="color__trash ${colorElement}" data-trash="${i + 1}">${
-      trashFullName[i]
-    }</div>
+      <div class="color__trash ${colorElement}" data-trash="${i + 1}">
+        ${trashFullName[i]}
+      </div>
     `;
     footer.innerHTML += column;
   }
