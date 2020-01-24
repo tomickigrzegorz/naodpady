@@ -4,6 +4,7 @@
 @import "./modules/navigation";
 @import "./modules/loading";
 @import "./modules/no-results";
+@import "./modules/footer-menu";
 
 *,
 *:after,
@@ -135,37 +136,6 @@ input[type="text"] {
   }
 }
 
-@each $name, $hex in $colors {
-  .#{$name} {
-    background: linear-gradient(to top, darken($hex, 10%) 50%, $hex 50%);
-    background-size: 100% 200%;
-    background-position: top;
-    transition: all 500ms ease-out;
-    cursor: pointer;
-    &:hover {
-      background-position: bottom;
-    }
-  }
-}
-
-.color-of__containers {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  width: 100%;
-  max-width: 960px;
-  position: fixed;
-  text-align: center;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.6);
-  @media (max-width: 600px) {
-    width: 100%;
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 .container__list {
   position: relative;
   width: 100%;
@@ -187,24 +157,6 @@ input[type="text"] {
     left: 12px;
     width: 1px;
     height: 100%;
-  }
-}
-
-.color__trash {
-  position: relative;
-  color: $color-white;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
-  height: 55px;
-  font-size: 1.4rem;
-  line-height: 100%;
-  @media (max-width: 600px) {
-    height: 45px;
-    padding: 0 2px;
-    font-size: 1.2rem;
   }
 }
 
