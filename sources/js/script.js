@@ -41,7 +41,6 @@ function infoTrash(number) {
 
 function setFocusSearch() {
   const searchInput = document.getElementById('search');
-  console.log('ok');
   searchInput.focus();
 }
 
