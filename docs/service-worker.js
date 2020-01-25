@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.dd40cca98ab77ff25cc6403ec2317932.js"
+  "precache-manifest.6b1f02d793705c2f8e3936f6c49c3adb.js"
 );
 
 workbox.core.skipWaiting();
@@ -30,3 +30,5 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {
   "directoryIndex": "index.html"
 });
+
+workbox.googleAnalytics.initialize({});

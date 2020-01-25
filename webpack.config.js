@@ -100,7 +100,6 @@ module.exports = (env, { mode }) => {
           : {
               collapseWhitespace: true,
               removeComments: true,
-              // removeRedundantAttributes: true,
               removeScriptTypeAttributes: true,
               removeStyleLinkTypeAttributes: true,
               useShortDoctype: true,
@@ -111,8 +110,7 @@ module.exports = (env, { mode }) => {
           clientsClaim: true,
           skipWaiting: true,
           directoryIndex: 'index.html',
-          // runtimeCaching: [{}],
-          // exclude: [/\.htacces$/gim],
+          offlineGoogleAnalytics: true,
         }),
         mode
       ),

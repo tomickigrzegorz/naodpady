@@ -39,10 +39,10 @@ function infoTrash(number) {
   }
 }
 
-function setFocusSearch() {
-  const searchInput = document.getElementById('search');
-  searchInput.focus();
-}
+// function setFocusSearch() {
+//   const searchInput = document.getElementById('search');
+//   searchInput.focus();
+// }
 
 function showHideNoResult() {
   const noResult = document.querySelector('.no__result');
@@ -101,7 +101,7 @@ function getDataFromJSON(number) {
     });
 
   typeTrash.innerHTML = infoTrash(numberType);
-  setFocusSearch();
+  // setFocusSearch();
   tilesWithContainerNames();
 }
 
@@ -203,14 +203,7 @@ function navigationMenu() {
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker
-      .register('/service-worker.js')
-      .then(registration => {
-        console.log('SW registered: ', registration);
-      })
-      .catch(registrationError => {
-        console.log('SW registration failed: ', registrationError);
-      });
+    navigator.serviceWorker.register('/service-worker.js');
   });
 }
 
