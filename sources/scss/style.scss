@@ -52,6 +52,7 @@ input[type="text"] {
   background-color: $color-white;
   border: 1px solid #d1d1d1;
   border-radius: 4px;
+  font-size: 16px;
   box-shadow: none;
   box-sizing: border-box;
   &:focus {
@@ -142,6 +143,7 @@ input[type="text"] {
   max-width: 960px;
   margin: auto;
   opacity: 1;
+  padding-bottom: 5px;
   transition: 300ms opacity;
   &::before {
     position: absolute;
