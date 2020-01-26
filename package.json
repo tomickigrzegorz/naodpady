@@ -8,7 +8,8 @@
     "prod": "webpack --config webpack.config.js --mode production",
     "lista": "node ./helpers/createJson.js",
     "sass": "node-sass ./sources/scss/style.scss ./sources/css/style.css -w",
-    "server": "http-server ./docs --proxy http://127.0.0.1"
+    "server": "http-server ./docs --proxy http://127.0.0.1",
+    "sitemap": "node ./helpers/sitemap-generator.js"
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",
