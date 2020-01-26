@@ -5,25 +5,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="robots" content="index,follow">
   <link rel="shortcut icon" type="image/x-icon" href="./static/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="./static/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./static/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./static/favicon-16x16.png">
   <meta name="msapplication-TileColor" content="#efefef">
   <meta name="theme-color" content="#efefef">
+  <link rel="canonical" href="https://naodpady.pl">
+  <meta property="og:title" content="naOdpady - Jak segregować smieci?">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://naodpady.pl">
+  <meta property="og:image" content="https://naodpady.pl/static/app_512x512.png">
+  <meta property="og:description"
+    content="🗑 Jak segregować śmieci? Co gdzie wrzucać? Pojemniki BIO,Metale i tworzywa sztuczne, papier, szkło, zmieszane.">
+  <meta property="og:site_name" content="naodpady.pl">
   <meta name="msapplication-navbutton-color" content="#efefef">
   <link rel="manifest" href="./assets/manifest.json">
   <meta name="google-site-verification" content="njREy3l80QiO8AyFVigMZhhHBMe4N1BXuWC9oayJuJw">
-  <title>naOdpady</title>
+  <title>naOdpady - Jak segregować smieci?</title>
   <meta name="description"
     content="🗑 Jak segregować śmieci? Co gdzie wrzucać? Pojemniki BIO,Metale i tworzywa sztuczne, papier, szkło, zmieszane.">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156932720-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+  <script async src="https://www.googletagmanager.com/gtag/js?<%= htmlWebpackPlugin.options.ga %>"></script>
+  <script>window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
     gtag('js', new Date());
-
-    gtag('config', 'UA-156932720-1');
+    gtag('config', '<%= htmlWebpackPlugin.options.ga %>');
   </script>
 </head>
 

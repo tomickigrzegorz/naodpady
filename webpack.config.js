@@ -95,6 +95,7 @@ module.exports = (env, { mode }) => {
       }),
       new HtmlWebPackPlugin({
         template: './sources/index.html',
+        ga: inDev ? '' : 'UA-156932720-1',
         minify: inDev
           ? false
           : {
