@@ -39,11 +39,6 @@ function infoTrash(number) {
   }
 }
 
-// function setFocusSearch() {
-//   const searchInput = document.getElementById('search');
-//   searchInput.focus();
-// }
-
 function showHideNoResult() {
   const noResult = document.querySelector('.no__result');
   const rowVisibleCount = document.querySelectorAll(
@@ -101,7 +96,6 @@ function getDataFromJSON(number) {
     });
 
   typeTrash.innerHTML = infoTrash(numberType);
-  // setFocusSearch();
   tilesWithContainerNames();
 }
 

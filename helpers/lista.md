@@ -24,6 +24,7 @@ doniczki | 5
 drewno w małych i rozsądnych ilościach | 5
 elementy plastikowe po nowo zakupionej koszuli | 5
 fajans, szkło stołowe | 5
+flakon po perfrumach | 4
 flamastry | 5
 folia bąbelkowa | 2
 folia np. po ziemniakach | 2
@@ -32,6 +33,7 @@ foliowe opakowanie np. po paluszkach | 2
 foliowe opakowanie, np. po bakaliach | 2
 fusy | 5
 gałązki od pomidorów | 1
+gałęzie drzew | 1
 gazety | 3
 gaziki | 5
 gąbki do kąpieli | 5
@@ -170,6 +172,7 @@ puste butelki po szamponach | 2
 puste szklane butelki, po zdjęciu zakrętki | 4
 puste szklane opakowania po kosmetykach | 4
 puszki | 2
+puszki po farbach | 5
 rajstopy | 5
 reklamówki | 2
 resztki fasolki szparagowej | 1
@@ -182,10 +185,8 @@ saszetki po jedzeniu dla kotów | 5
 siatki foliowe | 2
 sierść, włosy, pióra | 5
 skarpetki | 5
-skorupki jajek | 1
 skorupki orzechów | 1
 skorupki po jajkach | 5
-skorupki po orzeszkach | 1
 skórka arbuza | 1
 skórki od bananów | 1
 skórki po cytrusach | 1
@@ -197,7 +198,6 @@ stare płyty CD | 2
 stare ugotowane warzywa | 1
 starty żółty ser | 5
 stary, zeschnięty chleb | 1
-styropian (jeśli w okolicy nie odbywa się akurat gminna zbiórka) | 5
 styropian opakowaniowy | 2
 styropianowe tacki | 2
 szczoteczki | 5
@@ -210,11 +210,13 @@ szkło stołowe np. zbity kieliszek | 5
 sznurek, nici | 5
 szparagi ich zdrewniałe końcówki | 1
 szyby | 5
+szyby okienne | 5
 szypułki truskawek | 1
 śmietana | 5
 świeczki | 5
 talerze | 5
 tampony | 5
+tapety | 5
 tektura | 3
 tekturową rolkę po papierze toaletowym | 3
 torby i worki foliowe | 2
@@ -239,6 +241,7 @@ wykałaczki | 5
 wypalone zapałki | 5
 wyschnięte zakreślacze | 5
 zabawki - bez baterii, elektroniki | 5
+zakrętki po słoikach | 2
 zapalniczki - puste | 2
 zapałki | 5
 zatłuszczony papier | 5
@@ -250,7 +253,7 @@ zepsute owoce | 1
 zepsute pomidory | 1
 zepsute produkty pochodzenia zwierzęcego, np. stare mięso | 5
 zepsute warzywa np. marchew | 1
-zeszyty | 3
+zeszyty i ksiązki | 3
 ziemia | 5
 zjełczałe masło | 5
 zmywaki kuchenne | 5

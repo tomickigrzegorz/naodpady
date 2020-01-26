@@ -5,27 +5,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><%= htmlWebpackPlugin.options.title %></title>
   <meta name="robots" content="index,follow">
+  <link rel="dns-prefetch" href="//google-analytics.com">
   <link rel="shortcut icon" type="image/x-icon" href="./static/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="./static/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./static/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./static/favicon-16x16.png">
-  <meta name="msapplication-TileColor" content="#efefef">
-  <meta name="theme-color" content="#efefef">
   <link rel="canonical" href="https://naodpady.pl">
-  <meta property="og:title" content="naOdpady - Jak segregować smieci?">
+  <link rel="manifest" href="./assets/manifest.json">
+  <meta name="theme-color" content="#efefef">
+  <meta name="msapplication-TileColor" content="#efefef">
+  <meta name="msapplication-navbutton-color" content="#efefef">
+  <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %>">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://naodpady.pl">
   <meta property="og:image" content="https://naodpady.pl/static/app_512x512.png">
-  <meta property="og:description"
-    content="🗑 Jak segregować śmieci? Co gdzie wrzucać? Pojemniki BIO,Metale i tworzywa sztuczne, papier, szkło, zmieszane.">
+  <meta property="og:description" content="<%= htmlWebpackPlugin.options.description %>">
   <meta property="og:site_name" content="naodpady.pl">
-  <meta name="msapplication-navbutton-color" content="#efefef">
-  <link rel="manifest" href="./assets/manifest.json">
+  <meta name="format-detection" content="telephone=no" />
   <meta name="google-site-verification" content="njREy3l80QiO8AyFVigMZhhHBMe4N1BXuWC9oayJuJw">
-  <title>naOdpady - Jak segregować smieci?</title>
-  <meta name="description"
-    content="🗑 Jak segregować śmieci? Co gdzie wrzucać? Pojemniki BIO,Metale i tworzywa sztuczne, papier, szkło, zmieszane.">
+  <meta name="hash" content="<%= webpack.hash %>" />
+  <meta name="description" content="<%= htmlWebpackPlugin.options.description %>">
   <script async src="https://www.googletagmanager.com/gtag/js?<%= htmlWebpackPlugin.options.ga %>"></script>
   <script>window.dataLayer = window.dataLayer || [];
     function gtag() {
@@ -48,7 +49,7 @@
             <section>
               <h1>Witamy w naszej aplikacji.</h1>
               Sortowanie może być różne w zależności od gminy. <br>Jeżeli masz jakieś uwagi lub chcesz dodać
-              <strong>"ŚMIEĆ"</strong> do listy, wyślij nam infomację na adres <span class="no__result--mail"></span>
+              <strong>"ŚMIEĆ"</strong> do listy, wyślij nam informację na adres <span class="no__result--mail"></span>
             </section>
             <section>
               <h2 class="title__info brown">Pojemnik "BIO":</h2>

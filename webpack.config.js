@@ -11,18 +11,84 @@ function prodPlugin(plugin, mode) {
   return mode === 'production' ? plugin : () => {};
 }
 
+const configInstance = {
+  title: 'naOdpady - Jak segregować smieci?',
+  description:
+    '🗑 Jak segregować śmieci? Co gdzie wrzucać? Pojemniki BIO,Metale i tworzywa sztuczne, papier, szkło, zmieszane.',
+  ga: 'UA-156932720-1',
+};
+
+// configure Copy
+const configureCopy = () => {
+  return [
+    { from: 'trashlist/*.json', to: './' },
+    {
+      from: 'sources/assets/',
+      to: 'assets/',
+      ignore: ['robots.txt', '.htaccess'],
+    },
+    { from: 'sources/static/', to: 'static/' },
+  ];
+};
+
+// configure HtmlWebPackPlugin
+const configureHtmlWebPack = inDev => {
+  return {
+    template: './sources/index.html',
+    title: configInstance.title,
+    description: configInstance.description,
+    ga: inDev ? '' : configInstance.ga,
+    minify: inDev
+      ? false
+      : {
+          collapseWhitespace: true,
+          removeComments: true,
+          removeScriptTypeAttributes: true,
+          removeStyleLinkTypeAttributes: true,
+          useShortDoctype: true,
+        },
+  };
+};
+
+// configure WorkboxPlugin
+const cofigureWorkbox = () => {
+  return {
+    clientsClaim: true,
+    skipWaiting: true,
+    directoryIndex: 'index.html',
+    offlineGoogleAnalytics: true,
+  };
+};
+
+// configure Outpu
+const configureOutput = () => {
+  return {
+    path: path.resolve(__dirname, 'docs'),
+    filename: './assets/js/script.[hash].js',
+  };
+};
+
+// configure Entry
+const configureEntry = () => {
+  return {
+    script: './sources/js/script.js',
+  };
+};
+
+// configure BundleAnalyzerPlugin
+const configureBundleAnalyzer = () => {
+  return {
+    openAnalyzer: true,
+  };
+};
+
 module.exports = (env, { mode }) => {
   const inDev = mode === 'development';
   return {
     devtool: inDev ? 'source-map' : 'none',
     mode: inDev ? 'development' : 'production',
-    entry: {
-      script: './sources/js/script.js',
-    },
-    output: {
-      path: path.resolve(__dirname, 'docs'),
-      filename: './assets/js/script.[hash].js',
-    },
+    entry: configureEntry(),
+    output: configureOutput(),
     module: {
       rules: [
         {
@@ -77,50 +143,14 @@ module.exports = (env, { mode }) => {
         }),
         mode
       ),
-      prodPlugin(
-        new CopyPlugin([
-          { from: 'trashlist/*.json', to: './' },
-          {
-            from: 'sources/assets/',
-            to: 'assets/',
-            ignore: ['robots.txt', '.htaccess'],
-          },
-          { from: 'sources/static/', to: 'static/' },
-        ]),
-        mode
-      ),
+      prodPlugin(new CopyPlugin(configureCopy()), mode),
       new Dotenv(),
       new MiniCssExtractPlugin({
         filename: './assets/css/style.[hash].css',
       }),
-      new HtmlWebPackPlugin({
-        template: './sources/index.html',
-        ga: inDev ? '' : 'UA-156932720-1',
-        minify: inDev
-          ? false
-          : {
-              collapseWhitespace: true,
-              removeComments: true,
-              removeScriptTypeAttributes: true,
-              removeStyleLinkTypeAttributes: true,
-              useShortDoctype: true,
-            },
-      }),
-      prodPlugin(
-        new WorkboxPlugin.GenerateSW({
-          clientsClaim: true,
-          skipWaiting: true,
-          directoryIndex: 'index.html',
-          offlineGoogleAnalytics: true,
-        }),
-        mode
-      ),
-      // prodPlugin(
-      //   new BundleAnalyzerPlugin({
-      //     openAnalyzer: true,
-      //   }),
-      //   mode
-      // ),
+      new HtmlWebPackPlugin(configureHtmlWebPack(inDev)),
+      prodPlugin(new WorkboxPlugin.GenerateSW(cofigureWorkbox()), mode),
+      prodPlugin(new BundleAnalyzerPlugin(configureBundleAnalyzer()), mode),
     ],
   };
 };
