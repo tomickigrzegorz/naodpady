@@ -33,7 +33,7 @@ function infoTrash(number) {
     case 3:
     case 4:
     case 5:
-      return '<div data-trash="6"><span>RESET</span> wraca do ustawień początkowych</div>';
+      return '<div data-trash="6"><span>RESET</span> początkowa lista</div>';
     default:
       return 'cała lista śmieci';
   }
