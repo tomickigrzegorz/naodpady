@@ -73,6 +73,7 @@ function getDataFromJSON(number) {
   divBlock.classList.add('container__list');
   container.appendChild(divBlock);
 
+  document.body.className = '';
   document.body.classList.add('loading', `color-${colors[numberType - 1]}`);
 
   document.getElementById('search').value = '';
@@ -98,7 +99,7 @@ function getDataFromJSON(number) {
             divBlock.innerHTML += row;
             return divBlock;
           });
-          document.body.className = '';
+          document.body.classList.remove('loading');
           resolve();
         }, 500);
       });
