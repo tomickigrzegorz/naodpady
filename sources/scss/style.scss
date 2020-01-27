@@ -151,7 +151,7 @@ $hex in $colors {
   margin: auto;
   opacity: 1;
   padding-bottom: 5px;
-  transition: 1s opacity;
+  transition: opacity 1s;
 
   &::before {
     position: absolute;

@@ -50,5 +50,7 @@
     ">1%",
     "not dead"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "workbox-window": "^4.3.1"
+  }
 }

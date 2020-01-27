@@ -1,3 +1,4 @@
+import { Workbox } from 'workbox-window';
 import '../scss/style.scss';
 
 const trashlistJSON = process.env.TRASH_LIST;
@@ -206,9 +207,20 @@ function navigationMenu() {
 }
 
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js');
+  const wb = new Workbox('/service-worker.js');
+
+  wb.addEventListener('installed', event => {
+    if (event.isUpdate) {
+      if (confirm(`New content is available!. Click OK to refresh`)) {
+        window.location.reload();
+      }
+    }
   });
+
+  wb.register();
+  // window.addEventListener('load', () => {
+  //   navigator.serviceWorker.register('/service-worker.js');
+  // });
 }
 
 window.addEventListener('DOMContentLoaded', () => {
