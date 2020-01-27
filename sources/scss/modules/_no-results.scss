@@ -14,7 +14,7 @@
   a {
     font-size: 1.6rem;
   }
-  @media (max-width: 600px) {
+  @include breakpoint(small) {
     margin: -90px 20px auto;
   }
 }

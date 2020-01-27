@@ -1,3 +1,4 @@
+// colors
 $color-white: #ffffff;
 $color-brown: #8f623d;
 $color-yellow: #f9af2f;
@@ -7,12 +8,34 @@ $color-black: #000000;
 $color-gray: #505050;
 $color-red: #ff0000;
 
-$colors: (
-  "brown": $color-brown,
+
+// maps colors
+$colors: ("brown": $color-brown,
   "yellow": $color-yellow,
   "blue": $color-blue,
   "green": $color-green,
   "black": $color-black,
   "gray": $color-gray,
-  "info": $color-black
-);
+  "info": $color-black);
+
+// maps breakpoins
+$breakpoints: (small: 600px, medium: 960px, large: 1200px);
+
+// @mixin for breakpoint
+@mixin breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: #{ map-get( $breakpoints, $breakpoint ) }) {
+      @content;
+    }
+  }
+
+  @else if type_of($breakpoint)==number and unit($breakpoint)==px or unit($breakpoint)==em or unit($breakpoint)==rem {
+    @media (max-width: $breakpoint) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "Nie można pobrać żadnej wartości z `#{$breakpoint}`. Nie jest zdefiniowany w mapie `$breakpoints` lub jest nieprawidłową liczbą px, em, lub rem.";
+  }
+}
