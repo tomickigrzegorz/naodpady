@@ -1,0 +1,106 @@
+{
+  "objectTest": [
+    {
+      "color": "brown",
+      "title": "Pojemnik \"BIO\"",
+      "elements": [
+        "drewna",
+        "impregnowanego",
+        "kości",
+        "kurzu z odkurzacza",
+        "mięsa i odchodów",
+        "zwierząt",
+        "oleju jadalnego",
+        "płyt wiórowych i pilśniowych",
+        "popiołu z węgla kamiennego",
+        "ziemi i kamieni"
+      ],
+      "tips": [
+        "Odpady biodegradowalne można wrzucać do pojemnika BIO tylko w opakowaniach biodegradowalnych np. z papieru oraz niezadrukowanych"
+      ]
+    },
+    {
+      "color": "yellow",
+      "title": "Pojemnik \"Metale i tworzywa sztuczne\"",
+      "elements": [
+        "akumulatory",
+        "amunicja",
+        "baterie",
+        "butle gazowe",
+        "opakowania po aerozolach",
+        "opakowania po farbach, lakierach i olejach",
+        "plastikowe pojemniki, w których przechowywano tłuste produkty",
+        "plastikowe zabawki",
+        "płyty CD czy DVD",
+        "zużyty sprzęt elektroniczny i AGD"
+      ],
+      "tips": [
+        "opakowania po żywności czy kosmetykach opróżniamy, ale nie musimy ich myć - o ile gmina wyraźnie nie zaleca",
+        "jeśli opakowanie ma etykietę z folii termokurczliwej, o ile to możliwe, należy ją zdjąć",
+        "z kopert z folią bąbelkową można - choć nie trzeba - odedrzeć papier i wyrzucić go do pojemnika na papier",
+        "aluminiowe wieczka przed wyrzuceniem oddzielamy od pojemników",
+        "butelki zgniatamy i odkręcamy z nich nakrętki"
+      ]
+    },
+    {
+      "color": "blue",
+      "title": "Pojemnik \"Papier\"",
+      "elements": [
+        "okładki książek",
+        "papier lakierowany lub zabrudzony, tłusty",
+        "papier pokryty tworzywem sztucznym",
+        "papierowe worki po nawozach i materiałach budowlanych",
+        "paragony ze sklepu",
+        "zużyte ręczniki papierowe i chusteczki higieniczne"
+      ],
+      "tips": [
+        "jeśli to możliwe, z kartonowych paczek usuwamy taśmę klejącą i wyrzucamy ją do odpadów zmieszanych",
+        "zabrudzone/zatłuszczone części papieru - np. pudełek po pizzy - odrywamy i wyrzucamy do pojemnika na odpady zmieszane",
+        "z zeszytów czy gazet nie trzeba wyrywać zszywek",
+        "z książek czy kalendarzy oddzielamy duże elementy - np. okładki czy ramki"
+      ]
+    },
+    {
+      "color": "green",
+      "title": "Pojemnik \"Szkło\"",
+      "elements": [
+        "ceramiki, doniczek, fajansu i porcelany",
+        "lustra i szyby",
+        "monitorów i lamp telewizyjnych",
+        "opakowania po lekach rozpuszczalnikach i olejach silnikowych",
+        "reflektorów",
+        "szkła kryształowego",
+        "szkło okularowe i żaroodporne",
+        "szyb samochodowych",
+        "świetlówki i reflektory",
+        "termometrów i strzykawek",
+        "znicze z zawartością wosku",
+        "żarówki i świetlówek"
+      ],
+      "tips": [
+        "opróżnione słoiki wyrzucamy do pojemnika na odpady szklane, natomiast nakrętkę do właściwego ze względu na tworzywo pojemnika",
+        "słoików nie trzeba ich myć, o ile gmina wyraźnie tego nie zaleca"
+      ]
+    },
+    {
+      "color": "gray",
+      "title": "Pojemnik \"Zmieszane\"",
+      "elements": [
+        "akumulatory",
+        "baterie",
+        "lekarstwa",
+        "odpady budowlane i rozbiórkowe",
+        "odpady medyczne",
+        "odpady wielkogabarytowe",
+        "opakowania po środkach ochrony roślin",
+        "świetlówki",
+        "zużyte opony",
+        "zużyty sprzęt elektryczny i elektroniczny"
+      ],
+      "tips": [
+        "zużytą torebkę z herbatą wyrzucamy do pojemnika na odpady zmieszane. Można też jednak z torebki oddzielić herbatę i wrzucić ją do pojemnika na odpady biodegradowalne, a papierową torebkę do  pojemnika na odpady zmieszane",
+        "w niektórych gminach jest możliwe - choć niewskazane - wyrzucanie nabiału, sera, jaj do pojemnika na odpady BIO"
+      ]
+    }
+  ]
+}

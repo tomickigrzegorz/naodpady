@@ -1,0 +1,42 @@
+mixin head(data)
+  // - Meta
+  link(rel="dns-prefetch" href="//google-analytics.com")
+  meta(charset="UTF-8")
+  meta(name="viewport" content="width=device-width, initial-scale=1.0")
+  meta(http-equiv="X-UA-Compatible" content="ie=edge")
+  meta(name="robots" content="index,follow")
+
+  // - Google verification
+  meta(name="google-site-verification" content="njREy3l80QiO8AyFVigMZhhHBMe4N1BXuWC9oayJuJw")
+  //- meta(name="hash", content=data.hash)
+
+  // - Theme color
+  meta(name="theme-color" content="#efefef")
+  meta(name="msapplication-TileColor" content="#efefef")
+  meta(name="msapplication-navbutton-color" content="#efefef")
+
+  // - Title basic SEO
+  title= data.title
+  meta(name="description",content=data.description)
+  meta(name="author" content="Grzegorz Tomicki")
+  link(rel="canonical" href="https://naodpady.pl")
+
+  // - Favicon
+  link(rel="shortcut icon" type="image/x-icon" href="./static/favicon.ico")
+  link(rel="apple-touch-icon" sizes="180x180" href="./static/apple-touch-icon.png")
+  link(rel="icon" type="image/png" sizes="32x32" href="./static/favicon-32x32.png")
+  link(rel="icon" type="image/png" sizes="16x16" href="./static/favicon-16x16.png")
+
+  // Manifest browserconfig file for PWA
+  link(rel="manifest" href="./assets/manifest.json")
+  
+  // - Facebook
+  meta(property="og:title", content=data.title)
+  meta(property="og:type" content="website")
+  meta(property="og:url" content="https://naodpady.pl")
+  meta(property="og:image" content="https://naodpady.pl/static/app_512x512.png")
+  meta(property="og:description", content=data.description)
+  meta(property="og:site_name" content="naodpady.pl")
+
+  // - Deactive phone number SKYPE issue
+  meta(name="format-detection" content="telephone=no")

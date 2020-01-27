@@ -144,7 +144,7 @@ input[type="text"] {
   margin: auto;
   opacity: 1;
   padding-bottom: 5px;
-  transition: 300ms opacity;
+  transition: 1s opacity;
   &::before {
     position: absolute;
     content: "";

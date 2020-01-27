@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -34,10 +35,15 @@ const configureCopy = () => {
 // configure HtmlWebPackPlugin
 const configureHtmlWebPack = inDev => {
   return {
-    template: './sources/index.html',
+    template: './sources/templates/index.pug',
+    filename: 'index.html',
+    // eslint-disable-next-line global-require
+    file: require(`./sources/data/info.json`),
     title: configInstance.title,
     description: configInstance.description,
     ga: inDev ? '' : configInstance.ga,
+    type: !inDev,
+    // hash: contenthash,
     minify: inDev
       ? false
       : {
@@ -132,6 +138,14 @@ module.exports = (env, { mode }) => {
               },
             },
           ],
+        },
+        {
+          test: /\.pug$/,
+          loader: 'pug-loader',
+          options: {
+            pretty: true,
+            self: true,
+          },
         },
       ],
     },

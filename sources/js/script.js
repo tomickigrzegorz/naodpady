@@ -55,6 +55,16 @@ function hideNoResult() {
   noResult.classList.add('hidden');
 }
 
+async function fetchData(url) {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 function getDataFromJSON(number) {
   const numberType = number ? Number(number) : 6;
   const container = document.querySelector('.list__trash');
@@ -69,22 +79,21 @@ function getDataFromJSON(number) {
 
   hideNoResult();
 
-  fetch(`./trashlist/${trashlistJSON}`)
-    .then(response => response.json())
+  fetchData(`./trashlist/${trashlistJSON}`)
     .then(json => sortData(json.segregacja.odpadow, numberType))
     .then(site => {
       return new Promise(resolve => {
         setTimeout(() => {
           site.map(({ name, type }) => {
             const nameTrash = `
-              <div class="gradient__row gradient-${colors[type - 1]}">
-                <div class="title">${name}</div>
-              </div>`;
+            <div class="gradient__row gradient-${colors[type - 1]}">
+              <div class="title">${name}</div>
+            </div>`;
 
             const row = `
-              <div class="row">
-                ${nameTrash}
-              </div>`;
+            <div class="row">
+              ${nameTrash}
+            </div>`;
 
             divBlock.innerHTML += row;
             return divBlock;
@@ -201,10 +210,11 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-window.addEventListener('input', searchText);
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
   addingTriggerButton();
   getDataFromJSON();
   addMailAddress();
   navigationMenu();
+
+  window.addEventListener('input', searchText);
 });

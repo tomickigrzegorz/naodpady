@@ -1,0 +1,42 @@
+block variables
+- var path = self.htmlWebpackPlugin.options
+
+doctype html
+html(lang="pl")
+
+  include ./includes/head.pug
+  include ./includes/google-analytics.pug
+  include ./includes/section.pug
+
+  head
+    +head(path)
+    if path.type
+      +google(path)
+
+  body
+
+    .list__trash
+      .form__search
+        .container
+          input(type="text" id="search" name="search" placeholder="szukaj śmieci ...")
+          .more__info.menu__toggler
+            span
+          label(for="search" class="type__trash")
+          .menu
+            .menu__scroll
+
+              // sekcja witamy
+              section
+                h1 Witamy w naszej aplikacji.
+                | Sortowanie może być różne w zależności od gminy. <br />Jeżeli masz jakieś uwagi lub chcesz dodać #[strong "ŚMIEĆ"] do listy, wyślij nam informację na adres 
+                span(class="no__result--mail")
+
+              // pozostałe sekcje [BIO, metale i tworzywa sztuczne, papier, szkło, zmieszane]
+              +section(path.file)
+
+
+    // miejsce wstrzykiwania listy śmieci
+    .color-of__containers
+    
+    // sekcja no result
+    include ./includes/no-result.pug

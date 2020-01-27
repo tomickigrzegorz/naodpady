@@ -2,6 +2,7 @@
   position: fixed;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
   width: 100%;
   max-width: 960px;
   text-align: center;
@@ -10,9 +11,11 @@
   bottom: 0;
   margin: auto;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.6);
+  background-color: $color-gray;
+  transition: bottom 500ms;
   @media (max-width: 600px) {
     position: fixed;
-    right: -201%;
+    bottom: -91px;
     width: 100%;
     grid-template-columns: repeat(3, 1fr);
   }
@@ -25,11 +28,13 @@
     display: block;
     width: 40px;
     height: 45px;
-    right: 0;
-    bottom: 90px;
+    right: 13px;
+    bottom: -2px;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
     background-color: rgba($color-red, 0.6);
+    transform: rotate(90deg);
+    transition: bottom 500ms;
     cursor: pointer;
     &::before {
       position: absolute;
@@ -46,12 +51,13 @@
 
 .active-menu {
   .trigger {
+    bottom: 88px;
     &::before {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='#fff' d='M19.414 27.414l10-10a2 2 0 000-2.828l-10-10a2 2 0 10-2.828 2.828L23.172 14H4a2 2 0 100 4h19.172l-6.586 6.586c-.39.39-.586.902-.586 1.414s.195 1.024.586 1.414a2 2 0 002.828 0z'/%3E%3C/svg%3E");
     }
   }
   .color-of__containers {
-    right: 0;
+    bottom: 0;
   }
 }
 

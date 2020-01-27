@@ -1,0 +1,4 @@
+mixin google(data)
+  script(src="https://www.googletagmanager.com/gtag/js?" + data.ga)
+  script.
+    window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', '!{data.ga}')
