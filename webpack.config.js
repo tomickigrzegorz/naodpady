@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -13,9 +12,9 @@ function prodPlugin(plugin, mode) {
 }
 
 const configInstance = {
-  title: 'naOdpady - Jak segregować smieci?',
+  title: 'naOdpady - Jak segregować śmieci?',
   description:
-    '🗑 Jak segregować śmieci? Co gdzie wrzucać? Pojemniki BIO,Metale i tworzywa sztuczne, papier, szkło, zmieszane.',
+    '🗑 Jak segregować śmieci? Co gdzie wrzucać? Pojemniki BIO, Metale i tworzywa sztuczne, papier, szkło, zmieszane.',
   ga: 'UA-156932720-1',
 };
 
