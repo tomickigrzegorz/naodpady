@@ -1,7 +1,7 @@
 import { Workbox } from 'workbox-window';
 import '../scss/style.scss';
 
-const trashlistJSON = process.env.TRASH_LIST;
+const trashlistJSON = `./trashlist/${process.env.TRASH_LIST}`;
 const colors = ['brown', 'yellow', 'blue', 'green', 'gray', 'info'];
 const trashFullName = [
   'BIO',
@@ -12,34 +12,33 @@ const trashFullName = [
   'RESET',
 ];
 
+/**
+ * sortowanie danych
+ */
 function sortData(data, number) {
-  switch (number) {
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-      return data
-        .filter(a => a.type === number)
-        .sort((a, b) => a.name.localeCompare(b.name));
-    default:
-      return data.sort((a, b) => a.name.localeCompare(b.name));
-  }
+  const dataSort =
+    number === 6
+      ? data.sort((a, b) => a.name.localeCompare(b.name))
+      : data
+          .filter(a => a.type === number)
+          .sort((a, b) => a.name.localeCompare(b.name));
+  return dataSort;
 }
 
+/**
+ * zwraca tekst który umieszczny jest pod inputem
+ */
 function infoTrash(number) {
-  switch (number) {
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-      return '<div data-trash="6"><span>RESET</span> początkowa lista</div>';
-    default:
-      return 'cała lista śmieci';
-  }
+  const infoText =
+    number === 6
+      ? 'cała lista śmieci'
+      : '<div data-trash="6"><span>RESET</span> początkowa lista</div>';
+  return infoText;
 }
 
+/**
+ * pokaż/ukryj sekcję no result
+ */
 function showHideNoResult() {
   const noResult = document.querySelector('.no__result');
   const rowVisibleCount = document.querySelectorAll(
@@ -51,18 +50,26 @@ function showHideNoResult() {
     : noResult.classList.add('hidden');
 }
 
+/**
+ * ukrycie elementu przy wybraniu bottom menu
+ */
 function hideNoResult() {
   const noResult = document.querySelector('.no__result');
   noResult.classList.add('hidden');
 }
 
+/**
+ * fetch data
+ * @param {stirng} url ściezka do pliku
+ */
 async function fetchData(url) {
   try {
     const response = await fetch(url);
     const data = await response.json();
     return data;
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
 }
 
@@ -81,7 +88,7 @@ function getDataFromJSON(number) {
 
   hideNoResult();
 
-  fetchData(`./trashlist/${trashlistJSON}`)
+  fetchData(trashlistJSON)
     .then(json => sortData(json.segregacja.odpadow, numberType))
     .then(site => {
       return new Promise(resolve => {
@@ -110,6 +117,9 @@ function getDataFromJSON(number) {
   tilesWithContainerNames();
 }
 
+/**
+ * utrzymanie wyników zawsze na górze
+ */
 function scrollTopWindow() {
   window.scroll({
     top: 0,
@@ -118,6 +128,9 @@ function scrollTopWindow() {
   });
 }
 
+/**
+ * pokazywanie/uktrywanie rekordów po wpisaniu tekstu
+ */
 function searchText() {
   const input = document.getElementById('search');
   const filter = input.value.toUpperCase();
@@ -137,14 +150,20 @@ function searchText() {
   scrollTopWindow();
 }
 
+/**
+ * dodanie adresu email
+ */
 function addMailAddress() {
-  const noResult = document.querySelectorAll('.no__result--mail');
+  const noResult = document.querySelectorAll('.email');
   for (let i = 0; i < noResult.length; i++) {
     noResult[i].innerHTML =
       '<a href="mailto:info@naodpady.pl">info@naodpady.pl</a>';
   }
 }
 
+/**
+ * ladowanie nowych danych po kliknieciu [data-trash]
+ */
 function downloadDataByColor() {
   const dataTrashs = document.querySelectorAll('[data-trash]');
   const footer = document.querySelector('.color-of__containers');
@@ -160,6 +179,9 @@ function downloadDataByColor() {
   }
 }
 
+/**
+ * dodaje/usuwa klasę w body
+ */
 function triggerBottomMenu() {
   const triggerElement = document.querySelector('.trigger');
 
@@ -168,6 +190,9 @@ function triggerBottomMenu() {
   });
 }
 
+/**
+ * button kótry pokazuje usówa bottom menu
+ */
 function addingTriggerButton() {
   const triggerButton = document.createElement('div');
   triggerButton.setAttribute('class', 'trigger');
@@ -180,6 +205,9 @@ function addingTriggerButton() {
   triggerBottomMenu();
 }
 
+/**
+ * generowanie rekordow
+ */
 function tilesWithContainerNames() {
   const footer = document.querySelector('.color-of__containers');
 
@@ -192,10 +220,12 @@ function tilesWithContainerNames() {
     `;
     footer.innerHTML += column;
   }
-  // addingTriggerButton();
   downloadDataByColor();
 }
 
+/**
+ * pokazuje/ukrywa informacje
+ */
 function navigationMenu() {
   const toggler = document.querySelector('.menu__toggler');
   const menu = document.querySelector('.menu');
@@ -206,12 +236,17 @@ function navigationMenu() {
   });
 }
 
+/**
+ * uruchamiamy servive-worker
+ */
 if ('serviceWorker' in navigator) {
   const wb = new Workbox('/service-worker.js');
 
   wb.addEventListener('installed', event => {
     if (event.isUpdate) {
-      if (confirm(`New content is available!. Click OK to refresh`)) {
+      if (
+        confirm('Dostępna jest nowa treść!. Kliknij przycisk OK, aby odświeżyć')
+      ) {
         window.location.reload();
       }
     }
