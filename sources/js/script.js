@@ -12,22 +12,18 @@ const trashFullName = [
   'RESET',
 ];
 
-/**
- * sortowanie danych
- */
+// sortowanie danych
 function sortData(data, number) {
   const dataSort =
     number === 6
       ? data.sort((a, b) => a.name.localeCompare(b.name))
       : data
-          .filter(a => a.type === number)
-          .sort((a, b) => a.name.localeCompare(b.name));
+        .filter(a => a.type === number)
+        .sort((a, b) => a.name.localeCompare(b.name));
   return dataSort;
 }
 
-/**
- * zwraca tekst który umieszczny jest pod inputem
- */
+// zwraca tekst który umieszczany jest pod inputem
 function infoTrash(number) {
   const infoText =
     number === 6
@@ -36,9 +32,7 @@ function infoTrash(number) {
   return infoText;
 }
 
-/**
- * pokaż/ukryj sekcję no result
- */
+// pokaż/ukryj sekcję no result
 function showHideNoResult() {
   const noResult = document.querySelector('.no__result');
   const rowVisibleCount = document.querySelectorAll(
@@ -50,18 +44,13 @@ function showHideNoResult() {
     : noResult.classList.add('hidden');
 }
 
-/**
- * ukrycie elementu przy wybraniu bottom menu
- */
+// ukrycie elementu przy wybraniu bottom menu
 function hideNoResult() {
   const noResult = document.querySelector('.no__result');
   noResult.classList.add('hidden');
 }
 
-/**
- * fetch data
- * @param {stirng} url ściezka do pliku
- */
+// fetch data JSON
 async function fetchData(url) {
   try {
     const response = await fetch(url);
@@ -73,6 +62,7 @@ async function fetchData(url) {
   }
 }
 
+// pobranie danych z JSON i ich wyświetlenie
 function getDataFromJSON(number) {
   const numberType = number ? Number(number) : 6;
   const container = document.querySelector('.list__trash');
@@ -99,10 +89,7 @@ function getDataFromJSON(number) {
               <div class="title">${name}</div>
             </div>`;
 
-            const row = `
-            <div class="row">
-              ${nameTrash}
-            </div>`;
+            const row = `<div class="row">${nameTrash}</div>`;
 
             divBlock.innerHTML += row;
             return divBlock;
@@ -117,9 +104,7 @@ function getDataFromJSON(number) {
   tilesWithContainerNames();
 }
 
-/**
- * utrzymanie wyników zawsze na górze
- */
+// utrzymanie wyników zawsze na górze
 function scrollTopWindow() {
   window.scroll({
     top: 0,
@@ -128,9 +113,7 @@ function scrollTopWindow() {
   });
 }
 
-/**
- * pokazywanie/uktrywanie rekordów po wpisaniu tekstu
- */
+// pokazywanie/uktrywanie rekordów po wpisaniu tekstu
 function searchText() {
   const input = document.getElementById('search');
   const filter = input.value.toUpperCase();
@@ -150,9 +133,7 @@ function searchText() {
   scrollTopWindow();
 }
 
-/**
- * dodanie adresu email
- */
+// dodanie adresu email
 function addMailAddress() {
   const noResult = document.querySelectorAll('.email');
   for (let i = 0; i < noResult.length; i++) {
@@ -161,9 +142,7 @@ function addMailAddress() {
   }
 }
 
-/**
- * ladowanie nowych danych po kliknieciu [data-trash]
- */
+// ladowanie nowych danych po kliknieciu [data-trash]
 function downloadDataByColor() {
   const dataTrashs = document.querySelectorAll('[data-trash]');
   const footer = document.querySelector('.color-of__containers');
@@ -179,9 +158,7 @@ function downloadDataByColor() {
   }
 }
 
-/**
- * dodaje/usuwa klasę w body
- */
+// dodaje/usuwa klasę w body
 function triggerBottomMenu() {
   const triggerElement = document.querySelector('.trigger');
 
@@ -190,9 +167,7 @@ function triggerBottomMenu() {
   });
 }
 
-/**
- * button kótry pokazuje usówa bottom menu
- */
+// button pokazuje/ukrywa bottom menu
 function addingTriggerButton() {
   const triggerButton = document.createElement('div');
   triggerButton.setAttribute('class', 'trigger');
@@ -205,9 +180,7 @@ function addingTriggerButton() {
   triggerBottomMenu();
 }
 
-/**
- * generowanie rekordow
- */
+// generowanie rekordow
 function tilesWithContainerNames() {
   const footer = document.querySelector('.color-of__containers');
 
@@ -223,9 +196,7 @@ function tilesWithContainerNames() {
   downloadDataByColor();
 }
 
-/**
- * pokazuje/ukrywa informacje
- */
+// pokazuje/ukrywa informacje
 function navigationMenu() {
   const toggler = document.querySelector('.menu__toggler');
   const menu = document.querySelector('.menu');
@@ -236,9 +207,7 @@ function navigationMenu() {
   });
 }
 
-/**
- * uruchamiamy servive-worker
- */
+// uruchamiamy servive-worker
 if ('serviceWorker' in navigator) {
   const wb = new Workbox('/service-worker.js');
 

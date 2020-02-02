@@ -188,6 +188,7 @@ $hex in $colors {
   background-color: lighten($color-black, 25%);
   cursor: pointer;
   border-radius: 3px;
+  border: none;
 }
 
 .type__trash {

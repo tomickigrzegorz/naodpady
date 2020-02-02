@@ -19,7 +19,7 @@ html(lang="pl")
       .form__search
         .container
           input(type="text" id="search" name="search" placeholder="szukaj śmieci ...")
-          .more__info.menu__toggler
+          button(class="more__info menu__toggler", aria-label="dodatkowe informacje")
             span
           label(for="search" class="type__trash")
           .menu
@@ -40,3 +40,14 @@ html(lang="pl")
     
     // sekcja no result
     include ./includes/no-result.pug
+
+    script(type="application/ld+json").
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "url": "https://naodpady.pl",
+        "name": "naOdpady - Jak segregować śmieci?"
+        "image": "https://naodpady.pl/static/app_512x512.png",
+        "description": "🗑 Jak segregować śmieci? Co gdzie wrzucać? Pojemniki BIO, Metale i tworzywa sztuczne, papier, szkło, zmieszane.",
+        "email": "info@naodpady.pl"
+      }
