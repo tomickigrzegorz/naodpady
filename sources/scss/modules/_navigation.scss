@@ -56,9 +56,12 @@
 }
 
 .menu__scroll {
-  // overflow: auto;
   max-width: 940px;
   margin: 0 auto;
+
+  .info-section {
+    margin-bottom: 40px;
+  }
 }
 
 .menu {
@@ -117,9 +120,6 @@
   }
 
   section {
-    &:first-child {
-      margin-bottom: 40px;
-    }
 
     line-height: 150%;
     margin: 20px 0;
