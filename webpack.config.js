@@ -90,7 +90,7 @@ const configureBundleAnalyzer = () => {
 module.exports = (env, { mode }) => {
   const inDev = mode === 'development';
   return {
-    devtool: inDev ? 'source-map' : 'none',
+    devtool: inDev ? 'source-map' : '',
     mode: inDev ? 'development' : 'production',
     entry: configureEntry(),
     output: configureOutput(),
