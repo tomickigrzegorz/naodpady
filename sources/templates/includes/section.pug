@@ -5,7 +5,11 @@ mixin section(object)
       if element.color == "other"
         div(class="accordion title__info " + element.color) !{element.title}
         .panel
-          section !{element.info}
+          section 
+            strong !{element.info}
+            ul
+              each item in element.infoItems
+                li= item
       else
         div(class="accordion title__info " + element.color) !{element.title}
         .panel

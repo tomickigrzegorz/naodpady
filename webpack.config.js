@@ -136,6 +136,12 @@ module.exports = (env, { mode }) => {
                 sourceMap: true,
               },
             },
+            {
+              loader: 'sass-resources-loader',
+              options: {
+                resources: ['./sources/scss/modules/_variables.scss'],
+              },
+            },
           ],
         },
         {

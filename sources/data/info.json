@@ -105,7 +105,11 @@
     {
       "color": "other",
       "title": "Inne",
-      "info": "Odpady można oddać do punktu <b>Selektywnej Zbiórki Odpadów Komunalnych</b> lub <b>Mobilnego Punktu Selektywnej Zbiórki Odpadów Komunalnych</b>"
+      "info": "Odpady można oddać do punktu:",
+      "infoItems": [
+        "Selektywnej Zbiórki Odpadów Komunalnych",
+        "Mobilnego Punktu Selektywnej Zbiórki Odpadów Komunalnych"
+      ]
     }
   ]
 }

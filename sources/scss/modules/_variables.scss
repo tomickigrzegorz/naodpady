@@ -1,13 +1,22 @@
 // colors
-$color-white: #ffffff;
 $color-brown: #8f623d;
 $color-yellow: #f9af2f;
 $color-blue: #036bb5;
 $color-green: #44ad34;
-$color-black: #000000;
+
 $color-gray: #505050;
 $color-red: #ff0000;
 $color-violet: #5f0068;
+
+$black: #000;
+
+$purple: #49063e;
+$light: #eee;
+$white: #fff;
+$gray-light: #bdbdbd;
+$primary: #ddd;
+$gray: #444;
+$gray-lighten: #777;
 
 
 // maps colors
@@ -16,9 +25,9 @@ $colors: ("other": $color-violet,
   "yellow": $color-yellow,
   "blue": $color-blue,
   "green": $color-green,
-  "black": $color-black,
+  "black": $black,
   "gray": $color-gray,
-  "info": $color-black);
+  "info": $black);
 
 // maps breakpoins
 $breakpoints: (small: 600px, medium: 960px, large: 1200px);
