@@ -2,7 +2,7 @@
   "objectTest": [
     {
       "color": "brown",
-      "title": "Pojemnik \"BIO\"",
+      "title": "BIO",
       "elements": [
         "drewna",
         "impregnowanego",
@@ -21,7 +21,7 @@
     },
     {
       "color": "yellow",
-      "title": "Pojemnik \"Metale i tworzywa sztuczne\"",
+      "title": "Metale i tworzywa sztuczne",
       "elements": [
         "akumulatory",
         "amunicja",
@@ -44,7 +44,7 @@
     },
     {
       "color": "blue",
-      "title": "Pojemnik \"Papier\"",
+      "title": "Papier",
       "elements": [
         "okładki książek",
         "papier lakierowany lub zabrudzony, tłusty",
@@ -62,7 +62,7 @@
     },
     {
       "color": "green",
-      "title": "Pojemnik \"Szkło\"",
+      "title": "Szkło",
       "elements": [
         "ceramiki, doniczek, fajansu i porcelany",
         "lustra i szyby",
@@ -84,7 +84,7 @@
     },
     {
       "color": "gray",
-      "title": "Pojemnik \"Zmieszane\"",
+      "title": "Zmieszane",
       "elements": [
         "akumulatory",
         "baterie",
