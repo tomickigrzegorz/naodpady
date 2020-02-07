@@ -69,7 +69,7 @@ const cofigureWorkbox = () => {
 const configureOutput = () => {
   return {
     path: path.resolve(__dirname, 'docs'),
-    filename: './assets/js/script.[hash].js',
+    filename: './assets/js/script.[contenthash].js',
   };
 };
 
@@ -159,7 +159,7 @@ module.exports = (env, { mode }) => {
       prodPlugin(new CopyPlugin(configureCopy()), mode),
       new Dotenv(),
       new MiniCssExtractPlugin({
-        filename: './assets/css/style.[hash].css',
+        filename: './assets/css/style.[contenthash].css',
       }),
       new HtmlWebPackPlugin(configureHtmlWebPack(inDev)),
       prodPlugin(new WorkboxPlugin.GenerateSW(cofigureWorkbox()), mode),

@@ -7,10 +7,12 @@ $color-green: #44ad34;
 $color-black: #000000;
 $color-gray: #505050;
 $color-red: #ff0000;
+$color-violet: #5f0068;
 
 
 // maps colors
-$colors: ("brown": $color-brown,
+$colors: ("other": $color-violet,
+  "brown": $color-brown,
   "yellow": $color-yellow,
   "blue": $color-blue,
   "green": $color-green,

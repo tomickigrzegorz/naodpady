@@ -1,34 +1,36 @@
 import { Workbox } from 'workbox-window';
+import Accordion from './modules/accordion/accordion';
 import '../scss/style.scss';
 
 const trashlistJSON = `./trashlist/${process.env.TRASH_LIST}`;
-const colors = ['brown', 'yellow', 'blue', 'green', 'gray', 'info'];
+const colors = ['brown', 'yellow', 'blue', 'green', 'gray', 'other', 'info'];
 const trashFullName = [
   'BIO',
   'Metale i tworzywa sztuczne',
   'Papier',
   'Szkło',
   'Zmieszane',
+  'Inne',
   'RESET',
 ];
 
 // sortowanie danych
 function sortData(data, number) {
   const dataSort =
-    number === 6
+    number === 7
       ? data.sort((a, b) => a.name.localeCompare(b.name))
       : data
-        .filter(a => a.type === number)
-        .sort((a, b) => a.name.localeCompare(b.name));
+          .filter(a => a.type === number)
+          .sort((a, b) => a.name.localeCompare(b.name));
   return dataSort;
 }
 
 // zwraca tekst który umieszczany jest pod inputem
 function infoTrash(number) {
   const infoText =
-    number === 6
+    number === 7
       ? 'cała lista śmieci'
-      : '<div data-trash="6"><span>RESET</span> początkowa lista</div>';
+      : '<div data-trash="7"><span>RESET</span> początkowa lista</div>';
   return infoText;
 }
 
@@ -64,9 +66,10 @@ async function fetchData(url) {
 
 // pobranie danych z JSON i ich wyświetlenie
 function getDataFromJSON(number) {
-  const numberType = number ? Number(number) : 6;
+  const numberType = number ? +number : 7;
   const container = document.querySelector('.list__trash');
   const typeTrash = document.querySelector('.type__trash');
+  const fragment = document.createDocumentFragment();
   const divBlock = document.createElement('div');
   divBlock.classList.add('container__list');
   container.appendChild(divBlock);
@@ -82,21 +85,26 @@ function getDataFromJSON(number) {
     .then(json => sortData(json.segregacja.odpadow, numberType))
     .then(site => {
       return new Promise(resolve => {
+        // console.time('answer time');
         setTimeout(() => {
           site.map(({ name, type }) => {
-            const nameTrash = `
-            <div class="gradient__row gradient-${colors[type - 1]}">
-              <div class="title">${name}</div>
-            </div>`;
+            const color = type === 0 ? 'other' : colors[type - 1];
+            const row = document.createElement('div');
+            row.classList.add('row');
+            row.innerHTML = `
+              <div class="gradient__row gradient-${color}">
+                <div class="title">${name}</div>
+              </div>`;
 
-            const row = `<div class="row">${nameTrash}</div>`;
-
-            divBlock.innerHTML += row;
-            return divBlock;
+            fragment.appendChild(row);
+            // return divBlock;
           });
+          // console.timeLog('answer time');
           document.body.classList.remove('loading');
+          divBlock.appendChild(fragment);
           resolve();
         }, 500);
+        // console.timeEnd('answer time');
       });
     });
 
@@ -204,6 +212,7 @@ function navigationMenu() {
   toggler.addEventListener('click', () => {
     toggler.classList.toggle('active');
     menu.classList.toggle('active');
+    document.body.classList.toggle('active-info');
   });
 }
 
@@ -232,6 +241,13 @@ window.addEventListener('DOMContentLoaded', () => {
   getDataFromJSON();
   addMailAddress();
   navigationMenu();
+
+  const accordion = new Accordion({
+    accordionName: 'accordion-element',
+    activeName: 'active',
+    panelName: 'panel',
+    type: false,
+  });
 
   window.addEventListener('input', searchText);
 });

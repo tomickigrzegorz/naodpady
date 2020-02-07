@@ -101,6 +101,11 @@
         "zużytą torebkę z herbatą wyrzucamy do pojemnika na odpady zmieszane. Można też jednak z torebki oddzielić herbatę i wrzucić ją do pojemnika na odpady biodegradowalne, a papierową torebkę do  pojemnika na odpady zmieszane",
         "w niektórych gminach jest możliwe - choć niewskazane - wyrzucanie nabiału, sera, jaj do pojemnika na odpady BIO"
       ]
+    },
+    {
+      "color": "other",
+      "title": "Inne",
+      "info": "Odpady można oddać do punktu <b>Selektywnej Zbiórki Odpadów Komunalnych</b> lub <b>Mobilnego Punktu Selektywnej Zbiórki Odpadów Komunalnych</b>"
     }
   ]
 }

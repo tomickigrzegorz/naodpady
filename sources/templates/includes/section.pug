@@ -1,14 +1,21 @@
 mixin section(object)
-  each element, index in object.objectTest
-    // ----------------------------------------------
-    section
-      h2(class="title__info " + element.color) !{element.title}
-      strong Nie wyrzucamy:
-      ul
-        each item in element.elements
-          li= item
+  .accordion-element
+    each element, index in object.objectTest
+      // ----------------------------------------------
+      if element.color == "other"
+        div(class="accordion title__info " + element.color) !{element.title}
+        .panel
+          section !{element.info}
+      else
+        div(class="accordion title__info " + element.color) !{element.title}
+        .panel
+          section
+            strong Nie wyrzucamy:
+            ul
+              each item in element.elements
+                li= item
 
-      strong Wskazówki: <br/>
-      ul
-        each tip in element.tips
-          li= tip
+            strong Wskazówki: <br/>
+            ul
+              each tip in element.tips
+                li= tip
