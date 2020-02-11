@@ -374,10 +374,6 @@ skórka arbuza | 1
 skórka cytryny | 1
 skórka grejfruta | 1
 skórka mandarynki | 1
-skórka od cytryny | 1
-skórka od mandarynki | 1
-skórka po cytrynie | 1
-skórka po mandarynce | 1
 skórka woskowana po cytrusie | 1
 skórki od bananów | 1
 skórki po cytrusach | 1

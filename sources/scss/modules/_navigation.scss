@@ -61,7 +61,16 @@
 
   .info-section {
     margin-bottom: 40px;
+
+    &-first {
+      margin-top: 20px;
+    }
   }
+}
+
+
+.info-section {
+  margin-bottom: 20px;
 }
 
 .menu {

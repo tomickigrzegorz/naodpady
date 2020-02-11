@@ -3,7 +3,7 @@
     {
       "color": "brown",
       "title": "BIO",
-      "elements": [
+      "dont": [
         "drewna",
         "impregnowanego",
         "kości",
@@ -22,7 +22,7 @@
     {
       "color": "yellow",
       "title": "Metale i tworzywa sztuczne",
-      "elements": [
+      "dont": [
         "akumulatory",
         "amunicja",
         "baterie",
@@ -45,7 +45,7 @@
     {
       "color": "blue",
       "title": "Papier",
-      "elements": [
+      "dont": [
         "okładki książek",
         "papier lakierowany lub zabrudzony, tłusty",
         "papier pokryty tworzywem sztucznym",
@@ -63,7 +63,7 @@
     {
       "color": "green",
       "title": "Szkło",
-      "elements": [
+      "dont": [
         "ceramiki, doniczek, fajansu i porcelany",
         "lustra i szyby",
         "monitorów i lamp telewizyjnych",
@@ -85,7 +85,7 @@
     {
       "color": "gray",
       "title": "Zmieszane",
-      "elements": [
+      "dont": [
         "akumulatory",
         "baterie",
         "lekarstwa",

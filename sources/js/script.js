@@ -1,128 +1,60 @@
 import { Workbox } from 'workbox-window';
-import Accordion from './modules/accordion/accordion';
+
 import '../scss/style.scss';
 
-const trashlistJSON = `./trashlist/${process.env.TRASH_LIST}`;
-const colors = ['brown', 'yellow', 'blue', 'green', 'gray', 'other', 'info'];
-const trashFullName = [
-  'BIO',
-  'Metale i tworzywa sztuczne',
-  'Papier',
-  'Szkło',
-  'Zmieszane',
-  'Inne',
-  'RESET',
-];
+import {
+  AddingTriggerButton,
+  TilesWithContainerNames,
+} from './modules/FooterMenu';
 
-// sortowanie danych
-function sortData(data, number) {
-  const dataSort =
-    number === 7
-      ? data.sort((a, b) => a.name.localeCompare(b.name))
-      : data
-          .filter(a => a.type === number)
-          .sort((a, b) => a.name.localeCompare(b.name));
-  return dataSort;
-}
-
-// zwraca tekst który umieszczany jest pod inputem
-function infoTrash(number) {
-  const infoText =
-    number === 7
-      ? 'cała lista śmieci'
-      : '<div data-trash="7"><span>RESET</span> początkowa lista</div>';
-  return infoText;
-}
-
-// pokaż/ukryj sekcję no result
-function showHideNoResult() {
-  const noResult = document.querySelector('.no__result');
-  const rowVisibleCount = document.querySelectorAll(
-    '.row:not([style="display: none;"])'
-  ).length;
-
-  return rowVisibleCount < 1
-    ? noResult.classList.remove('hidden')
-    : noResult.classList.add('hidden');
-}
-
-// ukrycie elementu przy wybraniu bottom menu
-function hideNoResult() {
-  const noResult = document.querySelector('.no__result');
-  noResult.classList.add('hidden');
-}
-
-// fetch data JSON
-async function fetchData(url) {
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-}
+import Accordion from './modules/accordion/accordion';
+import AddMailAddress from './modules/AddMailAddress';
+import InfoTrash from './modules/InfoTrash';
+import RenderRow from './modules/RenderRow';
+import Loading from './modules/Loading';
+import ShowHideNoResult from './modules/NoResults';
 
 // pobranie danych z JSON i ich wyświetlenie
-function getDataFromJSON(number) {
+const GetDataFromJSON = number => {
   const numberType = number ? +number : 7;
   const container = document.querySelector('.list__trash');
-  const typeTrash = document.querySelector('.type__trash');
-  const fragment = document.createDocumentFragment();
-  const divBlock = document.createElement('div');
-  divBlock.classList.add('container__list');
-  container.appendChild(divBlock);
-
-  document.body.className = '';
-  document.body.classList.add('loading', `color-${colors[numberType - 1]}`);
+  const div = document.createElement('div');
 
   document.getElementById('search').value = '';
 
-  hideNoResult();
+  div.classList.add('container__list');
+  container.appendChild(div);
 
-  fetchData(trashlistJSON)
-    .then(json => sortData(json.segregacja.odpadow, numberType))
-    .then(site => {
-      return new Promise(resolve => {
-        // console.time('answer time');
-        setTimeout(() => {
-          site.map(({ name, type }) => {
-            const color = type === 0 ? 'other' : colors[type - 1];
-            const row = document.createElement('div');
-            row.classList.add('row');
-            row.innerHTML = `
-              <div class="gradient__row gradient-${color}">
-                <div class="title">${name}</div>
-              </div>`;
+  // loading animation
+  Loading();
 
-            fragment.appendChild(row);
-            // return divBlock;
-          });
-          // console.timeLog('answer time');
-          document.body.classList.remove('loading');
-          divBlock.appendChild(fragment);
-          resolve();
-        }, 500);
-        // console.timeEnd('answer time');
-      });
-    });
+  // pokazujemy/ukrywamy noresult brak wynikow
+  ShowHideNoResult('remove');
 
-  typeTrash.innerHTML = infoTrash(numberType);
-  tilesWithContainerNames();
-}
+  // render wszystki rekordow
+  RenderRow(div, numberType);
+
+  // informacja pod inputem
+  InfoTrash(numberType);
+
+  // dolne kolorowe menu
+  TilesWithContainerNames();
+
+  // eslint-disable-next-line no-use-before-define
+  DownloadDataByColor();
+};
 
 // utrzymanie wyników zawsze na górze
-function scrollTopWindow() {
+const ScrollTopWindow = () => {
   window.scroll({
     top: 0,
     left: 0,
     behavior: 'smooth',
   });
-}
+};
 
 // pokazywanie/uktrywanie rekordów po wpisaniu tekstu
-function searchText() {
+const SearchText = () => {
   const input = document.getElementById('search');
   const filter = input.value.toUpperCase();
   const content = document.querySelector('.container__list');
@@ -136,22 +68,12 @@ function searchText() {
       lists[i].parentNode.parentNode.style.display = 'none';
     }
   }
-
-  showHideNoResult();
-  scrollTopWindow();
-}
-
-// dodanie adresu email
-function addMailAddress() {
-  const noResult = document.querySelectorAll('.email');
-  for (let i = 0; i < noResult.length; i++) {
-    noResult[i].innerHTML =
-      '<a href="mailto:info@naodpady.pl">info@naodpady.pl</a>';
-  }
-}
+  ShowHideNoResult();
+  ScrollTopWindow();
+};
 
 // ladowanie nowych danych po kliknieciu [data-trash]
-function downloadDataByColor() {
+const DownloadDataByColor = () => {
   const dataTrashs = document.querySelectorAll('[data-trash]');
   const footer = document.querySelector('.color-of__containers');
   const content = document.querySelector('.container__list');
@@ -161,51 +83,13 @@ function downloadDataByColor() {
       const dataType = event.currentTarget.dataset.trash;
       footer.innerHTML = '';
       content.remove();
-      getDataFromJSON(dataType);
+      GetDataFromJSON(dataType);
     });
   }
-}
-
-// dodaje/usuwa klasę w body
-function triggerBottomMenu() {
-  const triggerElement = document.querySelector('.trigger');
-
-  triggerElement.addEventListener('click', () => {
-    document.body.classList.toggle('active-menu');
-  });
-}
-
-// button pokazuje/ukrywa bottom menu
-function addingTriggerButton() {
-  const triggerButton = document.createElement('div');
-  triggerButton.setAttribute('class', 'trigger');
-  const firstElementMenuFooter = document.querySelector(
-    '.color-of__containers'
-  );
-  const parentElement = firstElementMenuFooter.parentNode;
-  parentElement.insertBefore(triggerButton, firstElementMenuFooter);
-
-  triggerBottomMenu();
-}
-
-// generowanie rekordow
-function tilesWithContainerNames() {
-  const footer = document.querySelector('.color-of__containers');
-
-  for (let i = 0; i < colors.length; i++) {
-    const colorElement = colors[i];
-    const column = `
-      <div class="color__trash ${colorElement}" data-trash="${i + 1}">
-        ${trashFullName[i]}
-      </div>
-    `;
-    footer.innerHTML += column;
-  }
-  downloadDataByColor();
-}
+};
 
 // pokazuje/ukrywa informacje
-function navigationMenu() {
+const NavigationMenu = () => {
   const toggler = document.querySelector('.menu__toggler');
   const menu = document.querySelector('.menu');
 
@@ -214,7 +98,7 @@ function navigationMenu() {
     menu.classList.toggle('active');
     document.body.classList.toggle('active-info');
   });
-}
+};
 
 // uruchamiamy servive-worker
 if ('serviceWorker' in navigator) {
@@ -231,23 +115,21 @@ if ('serviceWorker' in navigator) {
   });
 
   wb.register();
-  // window.addEventListener('load', () => {
-  //   navigator.serviceWorker.register('/service-worker.js');
-  // });
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  addingTriggerButton();
-  getDataFromJSON();
-  addMailAddress();
-  navigationMenu();
+  AddingTriggerButton();
+  GetDataFromJSON();
+  AddMailAddress();
+  NavigationMenu();
 
-  const accordion = new Accordion({
+  // eslint-disable-next-line no-new
+  new Accordion({
     accordionName: 'accordion-element',
     activeName: 'active',
     panelName: 'panel',
     type: false,
   });
-
-  window.addEventListener('input', searchText);
 });
+
+window.addEventListener('input', SearchText);

@@ -174,11 +174,11 @@ $hex in $colors {
 
   @include breakpoint(medium) {
     margin-bottom: 120px;
+    padding: 80px 10px 0 0;
   }
 
   @include breakpoint(small) {
     margin-bottom: 90px;
-    padding: 80px 10px 0 0;
   }
 }
 
@@ -216,8 +216,4 @@ $hex in $colors {
 
 .active-info {
   overflow: hidden;
-}
-
-.info-section {
-  margin-bottom: 20px;
 }
