@@ -28,6 +28,7 @@ const TriggerBottomMenu = () => {
 const AddingTriggerButton = () => {
   const triggerButton = document.createElement('div');
   triggerButton.setAttribute('class', 'trigger');
+  triggerButton.setAttribute('id', 'trigger');
   const firstElementMenuFooter = document.querySelector(
     '.color-of__containers'
   );

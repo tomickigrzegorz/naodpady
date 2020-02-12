@@ -6,15 +6,19 @@ html(lang="pl")
 
   include ./includes/head.pug
   include ./includes/google-analytics.pug
+  include ./includes/google-tag-manager-top.pug
+  include ./includes/google-tag-manager-bottom.pug
   include ./includes/section.pug
 
   head
     +head(path)
     if path.type
       +google(path)
+      +googleGTMtop(path)
 
   body
-
+    if path.type
+      +googleGTMbottom(path)
     .list__trash
       .form__search
         .container

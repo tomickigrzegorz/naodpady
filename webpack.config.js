@@ -16,6 +16,7 @@ const configInstance = {
   description:
     '🗑 Jak segregować śmieci? Co gdzie wrzucać? Pojemniki BIO, Metale i tworzywa sztuczne, papier, szkło, zmieszane.',
   ga: 'UA-156932720-1',
+  gtm: 'GTM-T3CXNKJ',
 };
 
 // configure Copy
@@ -40,7 +41,10 @@ const configureHtmlWebPack = inDev => {
     file: require(`./sources/data/info.json`),
     title: configInstance.title,
     description: configInstance.description,
+    // ga: configInstance.ga,
+    // gtm: configInstance.gtm,
     ga: inDev ? '' : configInstance.ga,
+    gtm: inDev ? '' : configInstance.gtm,
     type: !inDev,
     // hash: contenthash,
     minify: inDev
