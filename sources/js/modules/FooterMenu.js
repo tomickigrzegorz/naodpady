@@ -1,4 +1,4 @@
-import { colors, trashFullName } from '../helpers/helpers';
+import { colors, trashFullName } from '../helpers/data';
 
 // generowanie rekordow
 const TilesWithContainerNames = () => {

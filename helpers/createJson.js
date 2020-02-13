@@ -17,32 +17,38 @@ const date = `${today.getFullYear()}${zerofill(today.getMonth() + 1)}${zerofill(
 
 const directory = 'trashlist';
 
-readdir(directory, (err, files) => {
-  if (err) throw err;
-  for (const file of files) {
-    unlink(path.join(directory, file), err => {
-      if (err) throw err;
-    });
-  }
-  createFiles();
-});
-
-function createFiles() {
+const createFiles = () => {
   res.forEach((line, index) => {
     const [name, type] = line.split('|');
 
     const comma = index < resLength - 1 ? ',' : '';
-    const path = `{"name":"${name.trim()}","type":${type.trim()}}${comma}`;
+    const pathName = `{"name":"${name.trim()}","type":${type.trim()}}${comma}`;
 
-    site.push(path);
+    site.push(pathName);
 
     const template = `{"segregacja":{"odpadow": [${site.join('')}]}}`;
 
-    writeFileSync(`./trashlist/naodpady.${date}.json`, template, err => {});
+    writeFileSync(`./trashlist/naodpady.${date}.json`, template, err => {
+      // eslint-disable-next-line no-console
+      console.error(err);
+    });
 
     const nameJSON = `TRASH_LIST = naodpady.${date}.json
 TRASH_MAIL = info@naodpady.pl`;
 
-    writeFileSync(`./.env`, nameJSON, err => {});
+    writeFileSync(`./.env`, nameJSON, err => {
+      // eslint-disable-next-line no-console
+      console.error(err);
+    });
   });
-}
+};
+
+readdir(directory, (err, files) => {
+  if (err) throw err;
+  files.forEach(file => {
+    unlink(path.join(directory, file), error => {
+      if (error) throw error;
+    });
+  });
+  createFiles();
+});

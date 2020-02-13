@@ -1,4 +1,4 @@
-import { colors, trashlistJSON } from '../helpers/helpers';
+import { colors, trashlistJSON } from '../helpers/data';
 import sortData from '../helpers/sortData';
 import fetchData from '../helpers/fetchData';
 
