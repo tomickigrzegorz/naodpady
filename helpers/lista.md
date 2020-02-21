@@ -43,7 +43,6 @@ chusteczki | 5
 cukierki | 5
 czasopisma | 3
 czekoladki | 5
-czysty | 2
 długopis | 5
 doniczka ceramiczna | 5
 doniczka plastikowa | 2
@@ -59,11 +58,8 @@ folia bąbelkowa | 2
 folia np. po ziemniakach | 2
 folia z dużym kawałkiem papieru | 5
 folie | 2
-folie bąbelkową | 2
-folię bąbelkową | 2
 foliowe | 5
 foliowe opakowanie np. po paluszkach, bakaliach | 2
-foliowy | 2
 fusy | 5
 gałązki od pomidorów | 1
 gałęzie drzew | 1
@@ -86,7 +82,6 @@ kanistry plastikowe (czyste - najlepiej nigdy nie napełniane) | 2
 kapcie | 5
 kapsle od butelek | 2
 kapsułka z kawą | 5
-kapsułki po kawie | 5
 kartonik po lekach tekturowy | 3
 kartonowe opakowanie po papierze do pieczenia | 3
 kartony (po bananach) | 3
@@ -168,7 +163,6 @@ opakowania po kosmetykach | 4
 opakowania po kosmetykach szklane | 4
 opakowania po lekach | 5
 opakowania po śmietankach | 2
-opakowania po tuszu do rzęs | 2
 opakowania spożywcze (po paluszkach, ciastkach itp. Delicje są tutaj dobrym przykładem) | 2
 opakowania z tworzyw sztucznych np. te po kawie | 2
 opakowanie foliowo-papierowe | 5
@@ -275,11 +269,8 @@ plastikowy kubek po śmietanie | 2
 plastikowy pojemnik po śmietanie | 2
 plastry | 5
 płatek | 5
-płatki | 5
-płyta cd | 2
 płyta styropianowa | 2
 płyta ze styropianu | 2
-płyty cd | 2
 płyty CD/DVD | 5
 płyty styropianowe | 2
 pochłaniacz od tacki po mięsie | 5
@@ -442,7 +433,6 @@ tacki | 2
 tacki plastikowe | 2
 tacki po warzywach  styropianowe | 2
 tacki po warzywach, plastikowe | 2
-talerz | 5
 talerze | 5
 tampony | 5
 tapety | 5
@@ -463,13 +453,11 @@ trociny do paczek | 5
 tubka po przecierkach dla dzieci plastikowa | 2
 tusz do rzęs | 2
 ubrania | 5
-ubranie | 5
 ugotowane oładki owsiane z dodatkami odzwierzęcymi | 5
 ugotowane płatki owsiane na wodzie | 1
 ulotki | 3
 wacik do twarzy | 5
 waciki | 5
-warzyw | 1
 warzywa | 1
 warzywo | 1
 wata | 5

@@ -7,9 +7,9 @@ const Dotenv = require('dotenv-webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-function prodPlugin(plugin, mode) {
+const prodPlugin = (plugin, mode) => {
   return mode === 'production' ? plugin : () => {};
-}
+};
 
 const configInstance = {
   title: 'naOdpady - Jak segregować śmieci?',
@@ -80,7 +80,7 @@ const configureOutput = () => {
 // configure Entry
 const configureEntry = () => {
   return {
-    script: './sources/js/script.js',
+    script: './sources/js/index.js',
   };
 };
 

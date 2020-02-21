@@ -10,7 +10,7 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.6);
+  box-shadow: 0 2px 2px 0 rgba($black, 0.6);
   background-color: $color-gray;
 
   @include breakpoint(medium) {

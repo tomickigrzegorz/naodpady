@@ -13,6 +13,8 @@ import InfoTrash from './modules/InfoTrash';
 import RenderRow from './modules/RenderRow';
 import Loading from './modules/Loading';
 import ShowHideNoResult from './modules/NoResults';
+import ScrollTopWindow from './modules/ScrollTopWindow';
+import NavigationMenu from './modules/NavigationMenu';
 
 // pobranie danych z JSON i ich wyświetlenie
 const GetDataFromJSON = number => {
@@ -42,15 +44,6 @@ const GetDataFromJSON = number => {
 
   // eslint-disable-next-line no-use-before-define
   DownloadDataByColor();
-};
-
-// utrzymanie wyników zawsze na górze
-const ScrollTopWindow = () => {
-  window.scroll({
-    top: 0,
-    left: 0,
-    behavior: 'smooth',
-  });
 };
 
 // pokazywanie/uktrywanie rekordów po wpisaniu tekstu
@@ -86,18 +79,6 @@ const DownloadDataByColor = () => {
       GetDataFromJSON(dataType);
     });
   }
-};
-
-// pokazuje/ukrywa informacje
-const NavigationMenu = () => {
-  const toggler = document.querySelector('.menu__toggler');
-  const menu = document.querySelector('.menu');
-
-  toggler.addEventListener('click', () => {
-    toggler.classList.toggle('active');
-    menu.classList.toggle('active');
-    document.body.classList.toggle('active-info');
-  });
 };
 
 // uruchamiamy servive-worker

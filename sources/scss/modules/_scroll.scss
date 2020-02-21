@@ -9,17 +9,17 @@ body,
     background-color: $white;
 
     &:hover {
-      background-color: #f4f4f4;
+      background-color: $webkit-scrollbar;
     }
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #babac0;
+    background-color: $webkit-scrollbar-thumb;
     border-radius: 16px;
     border: 2px solid $white;
 
     &:hover {
-      background-color: #a0a0a5;
+      background-color: $webkit-scrollbar-thumb-hover;
     }
   }
 
