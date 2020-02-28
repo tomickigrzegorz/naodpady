@@ -182,7 +182,7 @@ $hex in $colors {
   }
 }
 
-.more__info {
+.info {
   position: absolute;
   top: 0;
   right: 0;
@@ -193,6 +193,7 @@ $hex in $colors {
   cursor: pointer;
   border-radius: 3px;
   border: none;
+  outline: none;
 }
 
 .type__trash {

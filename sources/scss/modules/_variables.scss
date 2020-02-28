@@ -5,7 +5,8 @@ $white: #fff;
 $light: #eee;
 $primary: #ddd;
 $black: #000;
-
+$dark: #232323;
+$green: #3e9b67;
 
 $color-brown: #8f623d;
 $color-yellow: #f9af2f;
@@ -32,7 +33,7 @@ $colors: ("other": $color-violet,
   "green": $color-green,
   "black": $black,
   "gray": $color-gray,
-  "info": $black);
+  "reset": $black);
 
 // maps breakpoins
 $breakpoints: (small: 600px, medium: 960px, large: 1200px);

@@ -15,6 +15,8 @@ import Loading from './modules/Loading';
 import ShowHideNoResult from './modules/NoResults';
 import ScrollTopWindow from './modules/ScrollTopWindow';
 import NavigationMenu from './modules/NavigationMenu';
+// import Cookie from './modules/cookie/Cookie';
+import './modules/cookie/Cookie';
 
 // pobranie danych z JSON i ich wyświetlenie
 const GetDataFromJSON = number => {

@@ -1,5 +1,4 @@
 // zwraca tekst który umieszczany jest pod inputem
-
 const InfoTrash = number => {
   const typeTrash = document.querySelector('.type__trash');
   const infoText =
