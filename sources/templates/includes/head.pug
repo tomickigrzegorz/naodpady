@@ -17,8 +17,8 @@ mixin head(data)
   meta(name="msapplication-navbutton-color" content="#efefef")
 
   // - Title basic SEO
-  title= data.title
-  meta(name="description",content=data.description)
+  title= data.head.title
+  meta(name="description",content=data.head.description)
   meta(name="author" content="Grzegorz Tomicki")
   link(rel="canonical" href="https://naodpady.pl")
 
@@ -32,11 +32,11 @@ mixin head(data)
   link(rel="manifest" href="./assets/manifest.json")
   
   // - Facebook
-  meta(property="og:title", content=data.title)
+  meta(property="og:title", content=data.head.title)
   meta(property="og:type" content="website")
   meta(property="og:url" content="https://naodpady.pl")
   meta(property="og:image" content="https://naodpady.pl/static/app_512x512.png")
-  meta(property="og:description", content=data.description)
+  meta(property="og:description", content=data.head.description)
   meta(property="og:site_name" content="naodpady.pl")
 
   // - Deactive phone number SKYPE issue

@@ -2,6 +2,9 @@ import { Workbox } from 'workbox-window';
 
 import '../scss/style.scss';
 
+import './modules/Social-buttons';
+import './modules/Cookiebanner';
+
 import {
   AddingTriggerButton,
   TilesWithContainerNames,
@@ -15,8 +18,6 @@ import Loading from './modules/Loading';
 import ShowHideNoResult from './modules/NoResults';
 import ScrollTopWindow from './modules/ScrollTopWindow';
 import NavigationMenu from './modules/NavigationMenu';
-// import Cookie from './modules/cookie/Cookie';
-import './modules/cookie/Cookie';
 
 // pobranie danych z JSON i ich wyświetlenie
 const GetDataFromJSON = number => {
@@ -116,3 +117,36 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('input', SearchText);
+
+window.addEventListener('load', () => {
+  const options = {
+    class: 'cookiebanner',
+    message: 'Używamy cookies w celu polepszenia działania witryny.',
+    linkmsg: 'Dowiedz się więcej',
+    moreinfo: '#',
+  };
+  const cb = new Cookiebanner(options);
+  cb.run();
+
+  const cookiesBanner = document.querySelectorAll('.cookiebanner a');
+
+  cookiesBanner.forEach(cookie => {
+    cookie.addEventListener('click', e => {
+      e.preventDefault();
+      const activeInfo = document.querySelector('.active-info');
+      if (!activeInfo) {
+        const toggler = document.querySelector('.menu__toggler');
+        toggler.click();
+
+        const privacyPolicy = document.querySelector('.privacy-policy');
+        privacyPolicy.click();
+
+        setTimeout(() => {
+          privacyPolicy.scrollIntoView({
+            behavior: 'smooth',
+          });
+        }, 1000);
+      }
+    });
+  });
+});

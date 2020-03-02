@@ -2,53 +2,52 @@ block variables
 - var path = self.htmlWebpackPlugin.options
 
 doctype html
-html(lang="pl")
+html(lang="pl" class="index")
 
   include ./includes/head.pug
   include ./includes/google-analytics.pug
   include ./includes/google-tag-manager-top.pug
   include ./includes/google-tag-manager-bottom.pug
   include ./includes/section.pug
+  include ./includes/svg.pug
 
   head
-    +head(path)
+    +head(path.file)
     if path.type
       +google(path)
       +googleGTMtop(path)
 
   body
+    +svg()
     if path.type
       +googleGTMbottom(path)
+
     .list__trash
       .form__search
         .container
           input(type="text" id="search" name="search" placeholder="szukaj śmieci ...")
-          button(class="info menu__toggler", aria-label="dodatkowe informacje")
+          button(class="info menu__toggler" aria-label="dodatkowe informacje")
             span
           label(for="search" class="type__trash")
           .menu
             .menu__scroll
-
-              // sekcja witamy
+              header
+                .social-buttons
+                .logo
+                  svg(class="svg-icon")
+                    use(xlink:href="#logo")
+                  div.address naOdpady.pl
+                // sekcja witamy
               section.info-section
                 h1 Witamy w naszej aplikacji.
                 | Sortowanie może być różne w zależności od gminy. <br />Jeżeli masz jakieś uwagi lub chcesz dodać #[strong "ŚMIEĆ"] do listy, wyślij nam informację na adres 
                 span.email
-                //- ul.info-section-first
-                //-   li Nie myjemy opakowań, słoików i innych odpadów.
-                //-   li Opróżniamy opakowania z resztek zawartości.
-                //-   li Odrywamy wieczka od pojemników.
-                //-   li Zgniatamy puszki, butelki plastikowe i inne możliwe odpady.
-                //-   li Nie wrzucamy mięsa do BIO, tylko resztki roślinne.
-                //-   li Wyrzucamy odpady BIO luzem, ewentualnie w torebkach papierowych lub foliowych.
-                //-   li Segregujemy tylko czysty papier, brudny trafia do ZMIESZANYCH.
-              // pozostałe sekcje [BIO, metale i tworzywa sztuczne, papier, szkło, zmieszane]
-              +section(path.file)
 
+              +section(path.file)
 
     // miejsce wstrzykiwania listy śmieci
     .color-of__containers
-    
+
     // sekcja no result
     include ./includes/no-result.pug
 

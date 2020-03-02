@@ -10,6 +10,39 @@ mixin section(object)
             ul
               each item in element.infoItems
                 li= item
+
+      else if element.color == "privacy-policy"
+        div(class="accordion title__info " + element.color) !{element.title}
+        .panel.policy
+          section
+            h1 Pliki cookies
+            p(class="post-datetime")
+              time(datetime="2020-03-01T21:10:18+00:00" property="datePublished") 01-03-2020
+
+          section
+            h2 Pliki cookies i inne technologie śledzące
+            p Nasza strona, podobnie jak niemal wszystkie inne strony internetowe, wykorzystuje pliki cookies, by zapewnić Ci najlepsze doświadczenia związane z korzystaniem z niej.
+
+            p Cookies to niewielkie informacje tekstowe, przechowywane na Twoim urządzeniu końcowym (np. komputerze, tablecie, smartfonie), które mogą być odczytywane przez nasz system teleinformatyczny.
+
+            p Cookies można podzielić na cookies własne oraz cookie podmiotów trzecich.
+
+          section
+            h2 Zgoda na cookies
+            p Podczas pierwszej wizyty na stronie wyświetlana jest Ci informacja na temat stosowania plików cookies wraz z pytaniem o zgodę na wykorzystywanie plików cookies. Zawsze możesz zmienić ustawienia cookies z poziomu swojej przeglądarki albo w ogóle usunąć pliki cookies. Pamiętaj jednak, że wyłączenie plików cookies może powodować trudności w korzystaniu ze strony, jak również z wielu innych stron internetowych, które stosują cookies.
+
+          section
+            h2 Cookies własne
+            p Cookies własne wykorzystujemy w celu zapewnienia prawidłowego działania strony, a w szczególności do analyzy danych, które na póżniejszym etapie są wykorzystywane do optymalizacji strony.
+
+          section
+            h2 Cookies podmiotów trzecich
+            p Nasza strona, podobnie jak większość obecnych stron internetowych, wykorzystuje funkcje zapewniane przez podmioty trzecie, co wiąże się z wykorzystywaniem plików cookies pochodzących od podmiotów trzecich. Wykorzystanie tego rodzaju plików cookies zostało opisane poniżej.
+
+            h3 Analiza i statystyka
+            p Wykorzystujemy cookies do śledzenia statystyk strony, takich jak liczba osób odwiedzających, rodzaj systemu operacyjnego i przeglądarki internetowej wykorzystywanej do przeglądania strony, czas spędzony na stronie, odwiedzone podstrony etc. Korzystam w tym zakresie z Google Analytics, co wiąże się z wykorzystaniem plików cookies firmy Google LLC.
+
+
       else
         div(class="accordion title__info " + element.color) !{element.title}
         .panel
@@ -23,3 +56,10 @@ mixin section(object)
             ul
               each tip in element.tips
                 li= tip
+
+    //- div(class="accordion title__info " + element.color) !{element.title}
+    //-   .panel
+    //-     section 
+    //-       strong !{element.info}
+    //-       ul
+    //-         li test

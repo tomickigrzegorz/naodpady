@@ -1,4 +1,8 @@
 {
+  "head": {
+    "title": "naOdpady - Jak segregować śmieci? Polityka prywatności.",
+    "description": "🗑 Jak segregować śmieci? Co gdzie wrzucać? Pojemniki BIO, Metale i tworzywa sztuczne, papier, szkło, zmieszane."
+  },
   "objectTest": [
     {
       "color": "brown",
@@ -110,6 +114,10 @@
         "Selektywnej Zbiórki Odpadów Komunalnych",
         "Mobilnego Punktu Selektywnej Zbiórki Odpadów Komunalnych"
       ]
+    },
+    {
+      "color": "privacy-policy",
+      "title": "Pliki cookies"
     }
   ]
 }
