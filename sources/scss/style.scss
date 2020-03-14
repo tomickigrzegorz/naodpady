@@ -98,7 +98,16 @@ input[type="text"] {
 
   input {
     margin-bottom: 0;
-    padding-right: 40px;
+    padding: 0 40px 0 35px;
+  }
+
+  .icon-search {
+    position: absolute;
+    top: 9px;
+    left: 8px;
+    width: 20px;
+    height: 20px;
+    fill: $gray-light;
   }
 }
 
