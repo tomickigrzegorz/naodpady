@@ -142,7 +142,7 @@ module.exports = merge(baseConfig, {
         removeComments: true,
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true,
+        useShortDoctype: true
       },
       type: 'production'
     }),
