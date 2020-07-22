@@ -5,9 +5,9 @@ import fetchData from '../helpers/fetchData';
 const RenderRow = (div, numberType) => {
   const fragment = document.createDocumentFragment();
   fetchData(trashlistJSON)
-    .then(json => sortData(json.segregacja.odpadow, numberType))
-    .then(site => {
-      return new Promise(resolve => {
+    .then((json) => sortData(json.segregacja.odpadow, numberType))
+    .then((site) => {
+      return new Promise((resolve) => {
         // console.time('answer time');
         setTimeout(() => {
           site.map(({ name, type }) => {

@@ -1,5 +1,5 @@
 // pokaż/ukryj sekcję no result
-const ShowHideNoResult = action => {
+const ShowHideNoResult = (action) => {
   const noResult = document.querySelector('.no__result');
   const rowVisibleCount = document.querySelectorAll(
     '.row:not([style="display: none;"]'

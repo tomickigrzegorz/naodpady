@@ -14,7 +14,7 @@ class Accordion {
     const acc = this.getAccordionName();
 
     for (let i = 0; i < acc.length; i++) {
-      acc[i].addEventListener('click', e => {
+      acc[i].addEventListener('click', (e) => {
         if (this.type === true && !this.hasClass(acc[i], this.activeName)) {
           this.removeActiveAndPanelHeight();
         }

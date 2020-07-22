@@ -8,7 +8,6 @@
     "prettier"
   ],
   "plugins": [
-    "html",
     "prettier"
   ],
   "globals": {
@@ -20,22 +19,31 @@
     "sourceType": "module"
   },
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "class-methods-use-this": "off",
+    "quotes": [
+      "error",
+      "single"
+    ],
     "linebreak-style": [
       "error",
       "windows"
-    ],
-    "class-methods-use-this": "off",
-    "no-plusplus": [
-      "error",
-      {
-        "allowForLoopAfterthoughts": true
-      }
     ],
     "no-param-reassign": [
       2,
       {
         "props": false
+      }
+    ],
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
       }
     ]
   }

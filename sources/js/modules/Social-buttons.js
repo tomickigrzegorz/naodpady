@@ -40,7 +40,7 @@ const shareButton = () => {
   return share;
 };
 
-socialBoxs.forEach(socialbox => {
+socialBoxs.forEach((socialbox) => {
   // socialbox.innerHTML = shareButton();
   socialbox.innerHTML = navigator.share
     ? shareButton()
@@ -83,8 +83,8 @@ const winHeight = 320;
 const winTop = window.screen.height / 2 - winHeight / 2;
 const winLeft = window.screen.width / 2 - winWidth / 2;
 
-socialIcons.forEach(socialicon => {
-  socialicon.addEventListener('click', e => {
+socialIcons.forEach((socialicon) => {
+  socialicon.addEventListener('click', (e) => {
     const target = e.currentTarget;
     const typeSocial = target.dataset.share;
     // const { url, title } = target.parentNode.dataset;

@@ -20,7 +20,7 @@ import ScrollTopWindow from './modules/ScrollTopWindow';
 import NavigationMenu from './modules/NavigationMenu';
 
 // pobranie danych z JSON i ich wyświetlenie
-const GetDataFromJSON = number => {
+const GetDataFromJSON = (number) => {
   const numberType = number ? +number : 7;
   const container = document.querySelector('.list__trash');
   const div = document.createElement('div');
@@ -75,7 +75,7 @@ const DownloadDataByColor = () => {
   const content = document.querySelector('.container__list');
 
   for (let i = 0; i < dataTrashs.length; i++) {
-    dataTrashs[i].addEventListener('click', event => {
+    dataTrashs[i].addEventListener('click', (event) => {
       const dataType = event.currentTarget.dataset.trash;
       footer.innerHTML = '';
       content.remove();
@@ -88,9 +88,10 @@ const DownloadDataByColor = () => {
 if ('serviceWorker' in navigator) {
   const wb = new Workbox('/service-worker.js');
 
-  wb.addEventListener('installed', event => {
+  wb.addEventListener('installed', (event) => {
     if (event.isUpdate) {
       if (
+        // eslint-disable-next-line no-restricted-globals
         confirm('Dostępna jest nowa treść!. Kliknij przycisk OK, aby odświeżyć')
       ) {
         window.location.reload();
@@ -125,13 +126,14 @@ window.addEventListener('load', () => {
     linkmsg: 'Dowiedz się więcej',
     moreinfo: '#',
   };
+  // eslint-disable-next-line no-undef
   const cb = new Cookiebanner(options);
   cb.run();
 
   const cookiesBanner = document.querySelectorAll('.cookiebanner a');
 
-  cookiesBanner.forEach(cookie => {
-    cookie.addEventListener('click', e => {
+  cookiesBanner.forEach((cookie) => {
+    cookie.addEventListener('click', (e) => {
       e.preventDefault();
       const activeInfo = document.querySelector('.active-info');
       if (!activeInfo) {

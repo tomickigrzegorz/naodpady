@@ -1,5 +1,5 @@
 const path = require('path');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const baseConfig = require('./webpack.base.js');
 
 const HtmlWebPackPlugin = require('html-webpack-plugin');
@@ -17,16 +17,17 @@ const configInstance = {
 
 // configure Copy
 const configureCopy = () => {
-  return [
-    { from: 'trashlist/*.json', to: './' },
-    {
-      from: 'sources/assets/',
-      to: 'assets/',
-      ignore: ['robots.txt', '.htaccess'],
-    },
-    { from: 'sources/static/', to: 'static/' },
-    // { from: 'sources/js/cookiebanner.min.js', to: 'assets/js/' },
-  ];
+  return {
+    patterns: [
+      { from: 'trashlist/*.json', to: './' },
+      {
+        from: 'sources/assets/', to: 'assets/', globOptions: {
+          ignore: ['robots.txt', '.htaccess']
+        }
+      },
+      { from: 'sources/static/', to: 'static/' },
+    ]
+  };
 };
 
 // configure WorkboxPlugin
