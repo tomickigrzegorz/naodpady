@@ -1,6 +1,6 @@
 import { colors, trashFullName } from '../helpers/data';
 
-// generowanie rekordow
+// generating records
 const TilesWithContainerNames = () => {
   const footer = document.querySelector('.color-of__containers');
 
@@ -15,7 +15,7 @@ const TilesWithContainerNames = () => {
   }
 };
 
-// dodaje/usuwa klasę w body
+// adds / removes a class in body
 const TriggerBottomMenu = () => {
   const triggerElement = document.querySelector('.trigger');
 
@@ -24,7 +24,7 @@ const TriggerBottomMenu = () => {
   });
 };
 
-// button pokazuje/ukrywa bottom menu
+// button shows / hides the bottom menu
 const AddingTriggerButton = () => {
   const triggerButton = document.createElement('div');
   triggerButton.setAttribute('class', 'trigger');

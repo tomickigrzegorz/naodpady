@@ -1,4 +1,4 @@
-// pokazuje/ukrywa informacje
+// shows / hides information
 const NavigationMenu = () => {
   const toggler = document.querySelector('.menu__toggler');
   const menu = document.querySelector('.menu');

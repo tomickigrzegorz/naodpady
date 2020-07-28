@@ -1,4 +1,4 @@
-// dodanie adresu email
+// adding an email address
 const AddMailAddress = () => {
   const mail = process.env.TRASH_MAIL;
   const noResult = document.querySelectorAll('.email');

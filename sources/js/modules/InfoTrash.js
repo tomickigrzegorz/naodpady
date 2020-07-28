@@ -1,4 +1,4 @@
-// zwraca tekst który umieszczany jest pod inputem
+// returns the text that goes under the input
 const InfoTrash = (number) => {
   const typeTrash = document.querySelector('.type__trash');
   const infoText =

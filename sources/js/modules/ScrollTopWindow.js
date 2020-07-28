@@ -1,4 +1,4 @@
-// utrzymanie wyników zawsze na górze
+// keeping the results always on top
 const ScrollTopWindow = () => {
   window.scroll({
     top: 0,

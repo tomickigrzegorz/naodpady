@@ -19,7 +19,7 @@ import ShowHideNoResult from './modules/NoResults';
 import ScrollTopWindow from './modules/ScrollTopWindow';
 import NavigationMenu from './modules/NavigationMenu';
 
-// pobranie danych z JSON i ich wyświetlenie
+// getting data from JSON and displaying it
 const GetDataFromJSON = (number) => {
   const numberType = number ? +number : 7;
   const container = document.querySelector('.list__trash');
@@ -33,23 +33,23 @@ const GetDataFromJSON = (number) => {
   // loading animation
   Loading();
 
-  // pokazujemy/ukrywamy noresult brak wynikow
+  // show/hide noresult
   ShowHideNoResult('remove');
 
-  // render wszystki rekordow
+  // render all records
   RenderRow(div, numberType);
 
-  // informacja pod inputem
+  // information under the input
   InfoTrash(numberType);
 
-  // dolne kolorowe menu
+  // bottom colored menu
   TilesWithContainerNames();
 
   // eslint-disable-next-line no-use-before-define
   DownloadDataByColor();
 };
 
-// pokazywanie/uktrywanie rekordów po wpisaniu tekstu
+// showing / hiding records after entering text
 const SearchText = () => {
   const input = document.getElementById('search');
   const filter = input.value.toUpperCase();
@@ -68,7 +68,7 @@ const SearchText = () => {
   ScrollTopWindow();
 };
 
-// ladowanie nowych danych po kliknieciu [data-trash]
+// loading new data on click [data-trash]
 const DownloadDataByColor = () => {
   const dataTrashs = document.querySelectorAll('[data-trash]');
   const footer = document.querySelector('.color-of__containers');
@@ -84,7 +84,7 @@ const DownloadDataByColor = () => {
   }
 };
 
-// uruchamiamy servive-worker
+// run servive-worker
 if ('serviceWorker' in navigator) {
   const wb = new Workbox('/service-worker.js');
 

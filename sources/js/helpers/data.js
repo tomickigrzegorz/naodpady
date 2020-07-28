@@ -1,7 +1,7 @@
-// kolory
+// colors
 const colors = ['brown', 'yellow', 'blue', 'green', 'gray', 'other', 'reset'];
 
-// tekst na dole
+// the text at the bottom
 const trashFullName = [
   'BIO',
   'Metale i tworzywa sztuczne',
@@ -37,7 +37,7 @@ const cookieInfo = `
 </div>
 `;
 
-// sciezka do json - listy smieci
+// json path - garbage lists
 const trashlistJSON = `./trashlist/${process.env.TRASH_LIST}`;
 
 export { colors, cookieInfo, trashFullName, trashlistJSON };
