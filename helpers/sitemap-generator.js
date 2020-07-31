@@ -6,7 +6,7 @@ const ulrPart = [];
 readdir(`${htmlPlace}`, (err, files) => {
   if (err) throw err;
 
-  files.forEach(file => {
+  files.forEach((file) => {
     const [name, rest] = file.split('.');
 
     const changeFreq = 'monthly';
@@ -28,5 +28,5 @@ readdir(`${htmlPlace}`, (err, files) => {
   )}
 </urlset>`;
 
-  writeFile('./docs/sitemap.xml', template, error => console.log(error));
+  writeFile('./docs/sitemap.xml', template, (error) => console.log(error));
 });

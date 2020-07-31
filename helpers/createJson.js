@@ -7,7 +7,7 @@ const resLength = res.length;
 
 const site = [];
 
-const zerofill = value => (value < 10 && value > -1 ? '0' : '') + value;
+const zerofill = (value) => (value < 10 && value > -1 ? '0' : '') + value;
 
 const today = new Date();
 const date = `${today.getFullYear()}${zerofill(today.getMonth() + 1)}${zerofill(
@@ -28,7 +28,7 @@ const createFiles = () => {
 
     const template = `{"segregacja":{"odpadow": [${site.join('')}]}}`;
 
-    writeFileSync(`./trashlist/naodpady.${date}.json`, template, err => {
+    writeFileSync(`./trashlist/naodpady.${date}.json`, template, (err) => {
       // eslint-disable-next-line no-console
       console.error(err);
     });
@@ -36,7 +36,7 @@ const createFiles = () => {
     const nameJSON = `TRASH_LIST = naodpady.${date}.json
 TRASH_MAIL = info@naodpady.pl`;
 
-    writeFileSync(`./.env`, nameJSON, err => {
+    writeFileSync('./.env', nameJSON, (err) => {
       // eslint-disable-next-line no-console
       console.error(err);
     });
@@ -45,8 +45,8 @@ TRASH_MAIL = info@naodpady.pl`;
 
 readdir(directory, (err, files) => {
   if (err) throw err;
-  files.forEach(file => {
-    unlink(path.join(directory, file), error => {
+  files.forEach((file) => {
+    unlink(path.join(directory, file), (error) => {
       if (error) throw error;
     });
   });

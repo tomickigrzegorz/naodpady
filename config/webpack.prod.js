@@ -22,21 +22,27 @@ const configureCopy = () => {
       { from: 'trashlist/*.json', to: './' },
       {
         from: 'sources/assets/', to: 'assets/', globOptions: {
-          ignore: ['robots.txt', '.htaccess']
+          ignore: ['**/robots.txt', '**/.htaccess']
         }
       },
+      { from: 'sources/assets/robots.txt', to: './' },
+      { from: 'sources/assets/.htaccess', to: './' },
       { from: 'sources/static/', to: 'static/' },
     ]
   };
 };
 
-// configure WorkboxPlugin
+// configure WorkboxPlugin 
 const cofigureWorkbox = () => {
   return {
     clientsClaim: true,
     skipWaiting: true,
     directoryIndex: 'index.html',
     offlineGoogleAnalytics: true,
+    exclude: [
+      /robots\.txt$/,
+      /\.htaccess$/
+    ]
     // include: [/\.html$/, /\.js$/, /\.css$/, /\.json$/, /\.png$/],
     // runtimeCaching: [
     //   {
