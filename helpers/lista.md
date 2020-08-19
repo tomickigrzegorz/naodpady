@@ -358,7 +358,6 @@ siatki foliowe | 2
 sierść, włosy, pióra | 5
 skarpetki | 5
 skarpety | 5
-skorupka jajka | 1
 skorupki orzechów | 1
 skorupki po jajkach | 5
 skórka arbuza | 1
